@@ -68,6 +68,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
           CI: false
+      - name: Debug Build Output
+        run: ls -R out/ || ls -R .next/ || echo "Build output not found"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
