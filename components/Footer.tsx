@@ -17,18 +17,17 @@ export function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Solution</h4>
                         <ul className="space-y-2">
-                            <li><Link href="#" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">PicSea Engine</Link></li>
-                            <li><Link href="#" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Digital Twin</Link></li>
-                            <li><Link href="#" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">SupplyLink</Link></li>
+                            <li><Link href="#platform" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">PicSea Engine</Link></li>
+                            <li><Link href="#capabilities" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Digital Twin</Link></li>
+                            <li><Link href="#contact" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Contact Engineering</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Company</h4>
                         <ul className="space-y-2">
-                            <li><Link href="#" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Vision</Link></li>
-                            <li><Link href="#" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Contact</Link></li>
+                            <li><Link href="#platform" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Our Vision</Link></li>
+                            <li><Link href="#contact" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">About 7-SENSE</Link></li>
                         </ul>
                     </div>
 

@@ -12,13 +12,13 @@ export function Navbar() {
                 <div className="flex justify-between items-center h-20">
                     <div className="flex items-center gap-3">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:border-brand-cyan/50 transition-colors">
+                            <div className="relative w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-105">
                                 <Image
                                     src="/logo.png"
                                     alt="7Sense Logo"
-                                    width={32}
-                                    height={32}
-                                    className="object-contain"
+                                    width={40}
+                                    height={40}
+                                    className="object-contain mix-blend-lighten"
                                 />
                             </div>
                             <span className="text-xl font-bold tracking-tight text-white group-hover:text-brand-cyan transition-colors">

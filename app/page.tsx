@@ -6,21 +6,23 @@ import { motion } from "framer-motion";
 import { Ship, Cpu, Globe, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { PlatformSection } from "@/components/PlatformSection";
+import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden selection:bg-brand-cyan/30">
       {/* Animated Grid Background */}
-      <div className="fixed inset-0 grid-bg opacity-30 pointer-events-none" />
+      <div className="fixed inset-0 grid-bg opacity-20 pointer-events-none" />
 
       {/* Background Glows */}
-      <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-cyan/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-seafoam/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-cyan/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-seafoam/5 blur-[120px] rounded-full pointer-events-none" />
 
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4">
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 shadow-[inset_0_-100px_100px_rgba(10,10,15,1)]">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +41,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]"
+            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white"
           >
             Intelligent Operations<br />
             <span className="text-gradient">For Maritime Industry</span>
@@ -60,13 +62,13 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all flex items-center justify-center gap-2 group">
+            <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all flex items-center justify-center gap-2 group">
               Start a Project
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white font-bold rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+            </a>
+            <a href="#capabilities" className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white font-bold rounded-xl border border-white/10 hover:bg-white/10 transition-all text-center">
               Explore Capabilities
-            </button>
+            </a>
           </motion.div>
 
           {/* Data Orb Visual */}
@@ -76,25 +78,25 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.4 }}
             className="relative mt-20 max-w-4xl mx-auto"
           >
-            <div className="relative aspect-video rounded-3xl overflow-hidden glass-card border border-white/10 shadow-2xl shadow-brand-cyan/5">
+            <div className="relative aspect-video rounded-3xl overflow-hidden glass-card border border-white/10 shadow-2xl shadow-brand-cyan/5 group">
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative">
                   <motion.div
                     animate={{
-                      scale: [1, 1.05, 1],
-                      opacity: [0.3, 0.5, 0.3]
+                      scale: [1, 1.1, 1],
+                      opacity: [0.2, 0.4, 0.2]
                     }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute inset-[-40px] bg-brand-cyan/20 blur-[60px] rounded-full"
+                    transition={{ duration: 5, repeat: Infinity }}
+                    className="absolute inset-[-60px] bg-brand-cyan/10 blur-[80px] rounded-full"
                   />
-                  <div className="relative w-32 h-32 rounded-full border-2 border-brand-cyan/20 flex items-center justify-center bg-black/40 backdrop-blur-xl">
+                  <div className="relative w-32 h-32 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-xl transition-transform group-hover:scale-110 duration-700">
                     <Image
                       src="/logo.png"
                       alt="7Sense Orb"
-                      width={64}
-                      height={64}
-                      className="opacity-90"
+                      width={80}
+                      height={80}
+                      className="opacity-90 mix-blend-lighten"
                     />
                   </div>
                 </div>
@@ -136,7 +138,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl glass-card hover:border-brand-cyan/30 shadow-lg transition-all group"
+                className="p-8 rounded-2xl glass-card hover:border-brand-cyan/30 shadow-lg transition-all group cursor-default"
               >
                 <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6 border border-white/10 group-hover:border-brand-cyan/50 transition-colors">
                   {feature.icon}
@@ -159,6 +161,8 @@ export default function Home() {
         </div>
       </section>
 
+      <PlatformSection />
+      <ContactSection />
       <Footer />
     </main>
   );

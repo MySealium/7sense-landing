@@ -10,9 +10,17 @@
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #0a0a0f;
   --foreground: #ffffff;
+}
+
+section {
+  scroll-margin-top: 80px;
 }
 
 @layer base {
