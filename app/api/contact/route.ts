@@ -1,14 +1,20 @@
 import { Client } from "@notionhq/client";
 import { NextResponse } from "next/server";
 
-const notion = new Client({
-    auth: process.env.NOTION_API_KEY,
-});
-
 // Primary Database ID for 7SENSE LEAD PIPELINE
 const DATABASE_ID = process.env.NOTION_DATABASE_ID || "2fdd8f851bbb80f6ba4cf165465e67f3";
 
+// Orchestration logic initialized per request to ensure environment variables are fresh
 export async function POST(request: Request) {
+    const notionKey = process.env.NOTION_API_KEY;
+
+    if (!notionKey) {
+        console.error("CRITICAL: NOTION_API_KEY is missing from environment.");
+        return NextResponse.json({ error: "Server Configuration Error" }, { status: 500 });
+    }
+
+    const notion = new Client({ auth: notionKey });
+
     try {
         const body = await request.json();
         const { name, email, organization, project, message } = body;
