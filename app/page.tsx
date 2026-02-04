@@ -34,7 +34,7 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
             </span>
-            Next-Gen Marine Intelligence
+            Marine Domain-Specific Large Action Model
           </motion.div>
 
           <motion.h1
@@ -43,8 +43,8 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white"
           >
-            Intelligent Operations<br />
-            <span className="text-gradient">For Maritime Industry</span>
+            From Data to<br />
+            <span className="text-gradient">Real-World Action</span>
           </motion.h1>
 
           <motion.p
@@ -53,7 +53,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            We build integrated technology solutions that transform how vessels operate, connect, and scale in the modern maritime landscape.
+            We don't just analyze data—we execute. Our Large Action Model routes critical information to the right person, who takes ownership and completes the task. End-to-end workflows that turn mountains of marine data into measurable results.
           </motion.p>
 
           <motion.div
@@ -63,11 +63,11 @@ export default function Home() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all flex items-center justify-center gap-2 group">
-              Start a Project
+              Get Started
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a href="#capabilities" className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white font-bold rounded-xl border border-white/10 hover:bg-white/10 transition-all text-center">
-              Explore Capabilities
+              See How It Works
             </a>
           </motion.div>
 
@@ -112,26 +112,29 @@ export default function Home() {
       <section id="capabilities" className="py-24 px-4 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Capabilities</h2>
-            <p className="text-white/50 max-w-xl mx-auto">Precision engineering meets digital intelligence.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">How We Deliver Results</h2>
+            <p className="text-white/50 max-w-xl mx-auto">Three capabilities that bridge the gap between data and action.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 icon: <Cpu className="w-6 h-6 text-brand-cyan" />,
-                title: "Edge Computing",
-                desc: "Real-time data processing and autonomous routing for vessel systems."
+                title: "Intelligent Routing",
+                desc: "The right information reaches the right person—the one who owns the outcome and takes action.",
+                bullets: ["Context-aware delivery", "Accountability tracking", "Zero noise"]
               },
               {
                 icon: <Ship className="w-6 h-6 text-brand-cyan" />,
-                title: "Digital Twin",
-                desc: "Live synchronized models tracking every component and maintenance cycle."
+                title: "Action Execution",
+                desc: "We don't stop at insights. Tasks get assigned, tracked, and completed with full accountability chains.",
+                bullets: ["Task completion", "Ownership loops", "Audit trails"]
               },
               {
                 icon: <Globe className="w-6 h-6 text-brand-cyan" />,
-                title: "Global Supply",
-                desc: "Integrated procurement through the SupplyLink verified partner network."
+                title: "End-to-End Workflows",
+                desc: "From raw sensor data to procurement to maintenance—complete operational pipelines, not isolated tools.",
+                bullets: ["Unified pipelines", "Custom use cases", "Measurable ROI"]
               }
             ].map((feature, i) => (
               <motion.div
@@ -150,7 +153,7 @@ export default function Home() {
                   {feature.desc}
                 </p>
                 <ul className="space-y-3">
-                  {["Verified accuracy", "Low latency", "Scalable"].map((item, j) => (
+                  {feature.bullets.map((item, j) => (
                     <li key={j} className="flex items-center gap-2 text-xs font-medium text-white/40">
                       <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan/50" />
                       {item}

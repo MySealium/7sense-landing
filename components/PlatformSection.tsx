@@ -19,34 +19,33 @@ export function PlatformSection() {
                             The Platform
                         </motion.div>
                         <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-                            The <span className="text-gradient">Operating System</span><br />
-                            Of Maritime Operations
+                            Your Data Has<br /><span className="text-gradient">Untapped Value</span>
                         </h2>
                         <p className="text-white/60 text-lg mb-12 leading-relaxed">
-                            MySealium is not just a tool; it's a living intelligence ecosystem designed to verify, synchronize, and optimize every aspect of your vessel's life-cycle.
+                            Vessels generate mountains of data. Most of it sits unused. We build tailored workflows that extract specific, actionable insights and route them to the person responsible for execution—not a dashboard, but a completed task.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {[
                                 {
                                     icon: <Shield className="w-5 h-5 text-brand-seafoam" />,
-                                    title: "Verified Resilience",
-                                    desc: "PicSea engine ensures zero-false-positive authentication for every component."
+                                    title: "Precision Targeting",
+                                    desc: "Information tailored to each use case. No noise, no irrelevant alerts—just what's needed to take action."
                                 },
                                 {
                                     icon: <Zap className="w-5 h-5 text-brand-seafoam" />,
-                                    title: "Instant Integration",
-                                    desc: "API-first architecture connects seamlessly with existing hardware and legacy systems."
+                                    title: "Human-in-Loop Execution",
+                                    desc: "AI handles the complexity. Humans own the decisions. Every task has a responsible party."
                                 },
                                 {
                                     icon: <Activity className="w-5 h-5 text-brand-seafoam" />,
-                                    title: "Real-time Telemetry",
-                                    desc: "Continuous health monitoring across multi-vessel fleets with predictive insights."
+                                    title: "Complete Workflows",
+                                    desc: "From data ingestion to task completion—end-to-end pipelines that improve systems over time."
                                 },
                                 {
                                     icon: <Database className="w-5 h-5 text-brand-seafoam" />,
-                                    title: "Digital Continuity",
-                                    desc: "Immutable logs of every part replacement, maintenance event, and certification."
+                                    title: "Proven Accountability",
+                                    desc: "Full audit trails. See who did what, when, and verify outcomes across your entire operation."
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="space-y-3">
@@ -89,8 +88,8 @@ export function PlatformSection() {
                             ))}
 
                             <div className="relative z-10 text-center">
-                                <span className="text-brand-cyan font-mono text-4xl font-bold">99.9%</span>
-                                <p className="text-white/30 text-xs font-bold uppercase tracking-widest mt-2">Accuracy Rate</p>
+                                <span className="text-brand-cyan font-mono text-4xl font-bold">97%</span>
+                                <p className="text-white/30 text-xs font-bold uppercase tracking-widest mt-2">Task Completion Rate</p>
                             </div>
                         </motion.div>
                     </div>

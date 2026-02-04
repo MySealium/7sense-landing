@@ -10,7 +10,7 @@ export function ContactSection() {
         name: "",
         email: "",
         organization: "",
-        project: "Vessel Modernization",
+        project: "Workflow Automation",
         message: ""
     });
 
@@ -47,10 +47,10 @@ export function ContactSection() {
                         viewport={{ once: true }}
                         className="inline-block px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-xs font-bold uppercase tracking-widest mb-6"
                     >
-                        Contact Us
+                        Get In Touch
                     </motion.div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Start a Project</h2>
-                    <p className="text-white/50">Connect with our engineering team to explore bespoke maritime solutions.</p>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Let's Build Your Workflow</h2>
+                    <p className="text-white/50">Tell us about your operation. We'll show you where the untapped value is.</p>
                 </div>
 
                 <motion.div
@@ -133,17 +133,17 @@ export function ContactSection() {
 
                                 <div className="space-y-2">
                                     <label className="text-xs font-bold text-white/40 uppercase tracking-widest flex items-center gap-2">
-                                        <ChevronDown className="w-3 h-3" /> Project Type
+                                        <ChevronDown className="w-3 h-3" /> Interest Area
                                     </label>
                                     <select
                                         value={formData.project}
                                         onChange={(e) => setFormData({ ...formData, project: e.target.value })}
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all appearance-none"
                                     >
-                                        <option value="Vessel Modernization" className="bg-[#0a0a0f]">Vessel Modernization</option>
-                                        <option value="Infrastructure" className="bg-[#0a0a0f]">Infrastructure Integration</option>
-                                        <option value="PicSea Engine" className="bg-[#0a0a0f]">PicSea Engine Customization</option>
-                                        <option value="Consulting" className="bg-[#0a0a0f]">Consulting Services</option>
+                                        <option value="Workflow Automation" className="bg-[#0a0a0f]">Workflow Automation</option>
+                                        <option value="Fleet Operations" className="bg-[#0a0a0f]">Fleet Operations</option>
+                                        <option value="Procurement Integration" className="bg-[#0a0a0f]">Procurement Integration</option>
+                                        <option value="Custom Integration" className="bg-[#0a0a0f]">Custom Integration</option>
                                     </select>
                                 </div>
 
