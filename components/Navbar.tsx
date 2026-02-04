@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 
-export default function Navbar() {
+export function Navbar() {
     return (
         <nav className="fixed top-0 w-full z-50 glass-card border-b border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

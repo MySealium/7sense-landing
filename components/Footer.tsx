@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
-export default function Footer() {
+export function Footer() {
     return (
         <footer className="bg-brand-navy/50 py-16 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
