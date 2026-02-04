@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
@@ -7,9 +8,20 @@ export function Footer() {
         <footer className="bg-brand-navy/50 py-16 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-                    <div className="space-y-4">
-                        <span className="text-xl font-bold tracking-tight text-white">7-SENSE</span>
-                        <p className="text-white/50 text-sm max-w-xs">
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="relative w-10 h-10 flex items-center justify-center">
+                                <Image
+                                    src="/logo-new.png"
+                                    alt="7-SENSE Logo"
+                                    width={40}
+                                    height={40}
+                                    className="object-contain"
+                                />
+                            </div>
+                            <span className="text-xl font-bold tracking-tight text-white uppercase">7-SENSE</span>
+                        </div>
+                        <p className="text-white/50 text-sm max-w-xs leading-relaxed">
                             Intelligent marine operations and integrated technology solutions for the modern maritime industry.
                         </p>
                     </div>

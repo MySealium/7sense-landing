@@ -84,19 +84,21 @@ export default function Home() {
                 <div className="relative">
                   <motion.div
                     animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.2, 0.4, 0.2]
+                      scale: [1, 1.15, 1],
+                      opacity: [0.3, 0.6, 0.3],
+                      rotate: [0, 90, 0]
                     }}
-                    transition={{ duration: 5, repeat: Infinity }}
-                    className="absolute inset-[-60px] bg-brand-cyan/10 blur-[80px] rounded-full"
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-[-80px] bg-brand-cyan/15 blur-[100px] rounded-full"
                   />
-                  <div className="relative w-32 h-32 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-xl transition-transform group-hover:scale-110 duration-700">
+                  <div className="relative w-48 h-48 rounded-full flex items-center justify-center bg-black/60 backdrop-blur-2xl border border-white/5 shadow-inner shadow-white/10 transition-transform group-hover:scale-105 duration-1000">
+                    <div className="absolute inset-2 border border-brand-cyan/10 rounded-full animate-[spin_20s_linear_infinite]" />
                     <Image
-                      src="/logo.png"
+                      src="/logo-new.png"
                       alt="7Sense Orb"
-                      width={80}
-                      height={80}
-                      className="opacity-90 mix-blend-lighten"
+                      width={160}
+                      height={160}
+                      className="opacity-100 drop-shadow-[0_0_20px_rgba(0,229,255,0.4)]"
                     />
                   </div>
                 </div>
