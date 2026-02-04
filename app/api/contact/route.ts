@@ -5,7 +5,7 @@ const notion = new Client({
     auth: process.env.NOTION_API_KEY,
 });
 
-const PAGE_ID = process.env.NOTION_PAGE_ID || "2fcd8f851bbb81eb890bd1a11b45c6a1";
+const DATABASE_ID = process.env.NOTION_DATABASE_ID || "2fdd8f851bbb80f6ba4cf165465e67f3";
 
 export async function POST(request: Request) {
     try {
@@ -18,16 +18,38 @@ export async function POST(request: Request) {
         }
 
         await notion.pages.create({
-            parent: { page_id: PAGE_ID },
+            parent: { database_id: DATABASE_ID },
             properties: {
-                title: {
+                Name: {
                     title: [
                         {
                             text: {
-                                content: `Lead: ${name} (${organization})`,
+                                content: name,
                             },
                         },
                     ],
+                },
+                Email: {
+                    email: email,
+                },
+                Organization: {
+                    rich_text: [
+                        {
+                            text: {
+                                content: organization,
+                            },
+                        },
+                    ],
+                },
+                "Project Type": {
+                    select: {
+                        name: project, // This will match the select options: 'Vessel Modernization', 'Infrastructure', etc.
+                    },
+                },
+                "Lead Captured": {
+                    date: {
+                        start: new Date().toISOString(),
+                    },
                 },
             },
             children: [
@@ -35,53 +57,8 @@ export async function POST(request: Request) {
                     object: "block",
                     type: "heading_2",
                     heading_2: {
-                        rich_text: [{ type: "text", text: { content: "Lead Details" } }],
+                        rich_text: [{ type: "text", text: { content: "Lead Mission Context" } }],
                     },
-                },
-                {
-                    object: "block",
-                    type: "paragraph",
-                    paragraph: {
-                        rich_text: [
-                            { type: "text", text: { content: "Name: " }, annotations: { bold: true } },
-                            { type: "text", text: { content: name } },
-                        ],
-                    },
-                },
-                {
-                    object: "block",
-                    type: "paragraph",
-                    paragraph: {
-                        rich_text: [
-                            { type: "text", text: { content: "Email: " }, annotations: { bold: true } },
-                            { type: "text", text: { content: email } },
-                        ],
-                    },
-                },
-                {
-                    object: "block",
-                    type: "paragraph",
-                    paragraph: {
-                        rich_text: [
-                            { type: "text", text: { content: "Organization: " }, annotations: { bold: true } },
-                            { type: "text", text: { content: organization } },
-                        ],
-                    },
-                },
-                {
-                    object: "block",
-                    type: "paragraph",
-                    paragraph: {
-                        rich_text: [
-                            { type: "text", text: { content: "Project: " }, annotations: { bold: true } },
-                            { type: "text", text: { content: project } },
-                        ],
-                    },
-                },
-                {
-                    object: "block",
-                    type: "divider",
-                    divider: {},
                 },
                 {
                     object: "block",

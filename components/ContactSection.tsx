@@ -140,10 +140,10 @@ export function ContactSection() {
                                         onChange={(e) => setFormData({ ...formData, project: e.target.value })}
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all appearance-none"
                                     >
-                                        <option className="bg-[#0a0a0f]">Vessel Modernization</option>
-                                        <option className="bg-[#0a0a0f]">Infrastructure Integration</option>
-                                        <option className="bg-[#0a0a0f]">PicSea Engine Customization</option>
-                                        <option className="bg-[#0a0a0f]">Consulting Services</option>
+                                        <option value="Vessel Modernization" className="bg-[#0a0a0f]">Vessel Modernization</option>
+                                        <option value="Infrastructure" className="bg-[#0a0a0f]">Infrastructure Integration</option>
+                                        <option value="PicSea Engine" className="bg-[#0a0a0f]">PicSea Engine Customization</option>
+                                        <option value="Consulting" className="bg-[#0a0a0f]">Consulting Services</option>
                                     </select>
                                 </div>
 
