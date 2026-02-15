@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
+/* 7-SENSE Centralized Design Tokens (Refined Kit 2026) */
+@import "./7sense-tokens.css";
+
 @theme {
-  --color-brand-cyan: #00d9ff;
-  --color-brand-seafoam: #4DD4AC;
-  --color-brand-navy: #12121a;
+  /* Refined Kit 2026 - Aligned */
+  --color-brand-cyan: #00F0FF;
+  --color-brand-navy: #000C18;
+  --color-brand-navy-light: #002B45;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
@@ -15,7 +19,7 @@ html {
 }
 
 :root {
-  --background: #0a0a0f;
+  --background: #000C18; /* Aligned to Deep Abyss Blue */
   --foreground: #ffffff;
 }
 
@@ -31,21 +35,21 @@ section {
   }
 }
 
-/* Custom Utilities for the Palantir Aesthetic */
+/* Custom Utilities - Aligned to Refined Kit 2026 */
 @layer utilities {
   .glass-card {
-    background: rgba(18, 18, 26, 0.7);
+    background: rgba(0, 43, 69, 0.4); /* Oceanic Navy glassmorphism */
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan to-brand-seafoam;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan to-cyan-400;
   }
 
   .grid-bg {
-    background-image: linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }
