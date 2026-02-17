@@ -3,139 +3,297 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Ship, Cpu, Globe, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  Camera, Package, FileText, Anchor, Shield, Zap,
+  ArrowRight, Activity, Waves, Eye
+} from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PlatformSection } from "@/components/PlatformSection";
 import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden selection:bg-brand-cyan/30">
-      {/* Animated Grid Background */}
-      <div className="fixed inset-0 grid-bg opacity-20 pointer-events-none" />
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Ambient grid */}
+      <div className="fixed inset-0 grid-bg opacity-15 pointer-events-none" />
 
-      {/* Background Glows */}
-      <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-cyan/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-seafoam/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Ambient glows */}
+      <div
+        className="fixed top-[-15%] left-[-10%] w-[45%] h-[45%] rounded-full pointer-events-none"
+        style={{ background: "rgba(0, 240, 255, 0.03)", filter: "blur(120px)" }}
+      />
+      <div
+        className="fixed bottom-[-10%] right-[-15%] w-[40%] h-[40%] rounded-full pointer-events-none"
+        style={{ background: "rgba(0, 43, 69, 0.15)", filter: "blur(100px)" }}
+      />
 
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 shadow-[inset_0_-100px_100px_rgba(10,10,15,1)]">
-        <div className="max-w-7xl mx-auto text-center">
+      {/* ================================================================ */}
+      {/* HERO SECTION */}
+      {/* ================================================================ */}
+      <section className="relative pt-28 pb-20 md:pt-40 md:pb-32 px-4">
+        {/* Floating particles */}
+        {[
+          { left: "12%", delay: "0s", dur: "6s" },
+          { left: "45%", delay: "2s", dur: "7s" },
+          { left: "78%", delay: "1s", dur: "5.5s" },
+          { left: "30%", delay: "3.5s", dur: "8s" },
+          { left: "88%", delay: "0.5s", dur: "6.5s" },
+        ].map((p, i) => (
+          <div
+            key={i}
+            className="absolute bottom-20 pointer-events-none"
+            style={{
+              left: p.left,
+              width: i % 2 === 0 ? "3px" : "2px",
+              height: i % 2 === 0 ? "3px" : "2px",
+              borderRadius: "50%",
+              background: "rgba(0, 240, 255, 0.5)",
+              animation: `particle-drift ${p.dur} ease-in-out infinite`,
+              animationDelay: p.delay,
+            }}
+          />
+        ))}
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          {/* Logo + Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-brand-cyan mb-8 tracking-widest uppercase"
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center mb-8"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
+            <div className="relative w-20 h-20 mb-6">
+              {/* Sonar rings */}
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  border: "1px solid rgba(0, 240, 255, 0.12)",
+                  animation: "sonar-ring 3.5s ease-out infinite",
+                }}
+              />
+              <div
+                className="absolute inset-1 rounded-full"
+                style={{
+                  border: "1px solid rgba(0, 240, 255, 0.08)",
+                  animation: "sonar-ring 3.5s ease-out infinite 1.2s",
+                }}
+              />
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  boxShadow: "0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.15)",
+                }}
+              />
+              <Image
+                src="/logo-primary-circle.jpg"
+                alt="7-SENSE Marine"
+                width={80}
+                height={80}
+                className="rounded-full object-cover relative z-10"
+                priority
+              />
+            </div>
+            <span
+              className="text-[10px] font-bold tracking-[0.3em] uppercase px-4 py-1.5 rounded-full"
+              style={{
+                color: "#00F0FF",
+                background: "rgba(0, 240, 255, 0.06)",
+                border: "1px solid rgba(0, 240, 255, 0.15)",
+                fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+              }}
+            >
+              Marine Intelligence Systems
             </span>
-            Marine Domain-Specific Large Action Model
           </motion.div>
 
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-white"
+            className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight mb-6 leading-[1.05]"
+            style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
           >
-            From Data to<br />
-            <span className="text-gradient">Real-World Action</span>
+            <span className="text-white">Sense. Navigate.</span>
+            <br />
+            <span className="text-gradient glow-text">Act.</span>
           </motion.h1>
 
+          {/* Sub */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            We don't just analyze data—we execute. Our Large Action Model routes critical information to the right person, who takes ownership and completes the task. End-to-end workflows that turn mountains of marine data into measurable results.
+            We build intelligence systems for the marine industry. From photo-based
+            parts identification to predictive maintenance, our tools help shops and
+            fleet operators work smarter — not harder.
           </motion.p>
 
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all flex items-center justify-center gap-2 group">
-              Get Started
+            <a
+              href="#contact"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-black flex items-center justify-center gap-2 transition-all duration-200 group"
+              style={{
+                background: "#00F0FF",
+                color: "#000C18",
+                fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.boxShadow =
+                  "0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15)")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.boxShadow = "none")
+              }
+            >
+              Start a Conversation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#capabilities" className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white font-bold rounded-xl border border-white/10 hover:bg-white/10 transition-all text-center">
-              See How It Works
+            <a
+              href="#capabilities"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 text-center"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                color: "rgba(255,255,255,0.7)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(0, 240, 255, 0.25)";
+                el.style.color = "#00F0FF";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(255,255,255,0.08)";
+                el.style.color = "rgba(255,255,255,0.7)";
+              }}
+            >
+              See What We Build
             </a>
           </motion.div>
 
-          {/* Data Orb Visual */}
+          {/* Banner image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative mt-20 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-16 max-w-4xl mx-auto relative"
           >
-            <div className="relative aspect-video rounded-3xl overflow-hidden glass-card border border-white/10 shadow-2xl shadow-brand-cyan/5 group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.15, 1],
-                      opacity: [0.3, 0.6, 0.3],
-                      rotate: [0, 90, 0]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-[-80px] bg-brand-cyan/15 blur-[100px] rounded-full"
-                  />
-                  <div className="relative w-48 h-48 rounded-full flex items-center justify-center bg-black/60 backdrop-blur-2xl border border-white/5 shadow-inner shadow-white/10 transition-transform group-hover:scale-105 duration-1000">
-                    <div className="absolute inset-2 border border-brand-cyan/10 rounded-full animate-[spin_20s_linear_infinite]" />
-                    <Image
-                      src="/logo-new.png"
-                      alt="7Sense Orb"
-                      width={160}
-                      height={160}
-                      className="opacity-100 drop-shadow-[0_0_20px_rgba(0,229,255,0.4)]"
-                    />
-                  </div>
-                </div>
+            <div
+              className="rounded-2xl overflow-hidden relative"
+              style={{
+                border: "1px solid rgba(0, 240, 255, 0.12)",
+                boxShadow:
+                  "0 0 60px rgba(0, 240, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.5)",
+              }}
+            >
+              <Image
+                src="/banner-wide.jpg"
+                alt="7-SENSE Marine — Ocean Intelligence"
+                width={1200}
+                height={400}
+                className="w-full h-auto object-cover"
+                style={{ maxHeight: "360px" }}
+                priority
+              />
+              {/* Gradient overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(0deg, rgba(0, 12, 24, 0.8) 0%, rgba(0, 12, 24, 0.2) 40%, rgba(0, 12, 24, 0.1) 100%)",
+                }}
+              />
+              {/* Tagline overlay */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+                <span
+                  className="text-[11px] font-bold tracking-[0.2em] uppercase glow-text-sm"
+                  style={{
+                    color: "rgba(0, 240, 255, 0.8)",
+                    fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                  }}
+                >
+                  Sense. Navigate. Act.
+                </span>
+                <span
+                  className="text-[10px] tracking-wider uppercase"
+                  style={{ color: "rgba(255,255,255,0.3)" }}
+                >
+                  7-SENSE Marine
+                </span>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Capabilities Section */}
-      <section id="capabilities" className="py-24 px-4 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">How We Deliver Results</h2>
-            <p className="text-white/50 max-w-xl mx-auto">Three capabilities that bridge the gap between data and action.</p>
+      {/* ================================================================ */}
+      {/* CAPABILITIES SECTION */}
+      {/* ================================================================ */}
+      <section id="capabilities" className="py-20 md:py-28 px-4 relative">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
+              style={{
+                color: "#00F0FF",
+                background: "rgba(0, 240, 255, 0.06)",
+                border: "1px solid rgba(0, 240, 255, 0.15)",
+                fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+              }}
+            >
+              What We Build
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-black mb-4 text-white"
+              style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+            >
+              Marine Intelligence,{" "}
+              <span className="text-gradient">End to End</span>
+            </motion.h2>
+            <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Purpose-built tools for marine professionals. Not generic SaaS
+              repackaged with a boat icon.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                icon: <Cpu className="w-6 h-6 text-brand-cyan" />,
-                title: "Intelligent Routing",
-                desc: "The right information reaches the right person—the one who owns the outcome and takes action.",
-                bullets: ["Context-aware delivery", "Accountability tracking", "Zero noise"]
+                icon: <Camera className="w-5 h-5" />,
+                title: "Visual Intelligence",
+                desc: "Photograph a part, get instant identification with manufacturer, part number, pricing, and stock — powered by our marine-specific AI.",
+                tag: "PicSea Engine",
               },
               {
-                icon: <Ship className="w-6 h-6 text-brand-cyan" />,
-                title: "Action Execution",
-                desc: "We don't stop at insights. Tasks get assigned, tracked, and completed with full accountability chains.",
-                bullets: ["Task completion", "Ownership loops", "Audit trails"]
+                icon: <Activity className="w-5 h-5" />,
+                title: "Predictive Maintenance",
+                desc: "Track service intervals, detect patterns from job history, and prevent breakdowns before they happen. Your shop's institutional memory.",
+                tag: "Coming Soon",
               },
               {
-                icon: <Globe className="w-6 h-6 text-brand-cyan" />,
-                title: "End-to-End Workflows",
-                desc: "From raw sensor data to procurement to maintenance—complete operational pipelines, not isolated tools.",
-                bullets: ["Unified pipelines", "Custom use cases", "Measurable ROI"]
-              }
+                icon: <Shield className="w-5 h-5" />,
+                title: "Procurement Operations",
+                desc: "From photo to purchase order in minutes. Multi-vendor sourcing, compatibility validation, and export-ready BOMs for every job.",
+                tag: "Live",
+              },
             ].map((feature, i) => (
               <motion.div
                 key={i}
@@ -143,31 +301,330 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl glass-card hover:border-brand-cyan/30 shadow-lg transition-all group cursor-default"
+                className="p-6 rounded-2xl transition-all duration-300 group cursor-default relative overflow-hidden"
+                style={{
+                  background: "rgba(0, 26, 46, 0.4)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  backdropFilter: "blur(12px)",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "rgba(0, 240, 255, 0.2)";
+                  el.style.boxShadow = "0 0 30px rgba(0, 240, 255, 0.05)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "rgba(255,255,255,0.06)";
+                  el.style.boxShadow = "none";
+                }}
               >
-                <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6 border border-white/10 group-hover:border-brand-cyan/50 transition-colors">
-                  {feature.icon}
+                {/* Corner glow */}
+                <div
+                  className="absolute top-0 right-0 w-20 h-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: "radial-gradient(circle at top right, rgba(0, 240, 255, 0.08) 0%, transparent 70%)",
+                  }}
+                />
+
+                <div className="flex items-center gap-3 mb-4">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: "rgba(0, 240, 255, 0.08)",
+                      border: "1px solid rgba(0, 240, 255, 0.15)",
+                      color: "#00F0FF",
+                    }}
+                  >
+                    {feature.icon}
+                  </div>
+                  <span
+                    className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
+                    style={{
+                      background:
+                        feature.tag === "Live"
+                          ? "rgba(52, 211, 153, 0.1)"
+                          : "rgba(0, 240, 255, 0.06)",
+                      color: feature.tag === "Live" ? "#34D399" : "rgba(0, 240, 255, 0.7)",
+                      border: `1px solid ${feature.tag === "Live" ? "rgba(52, 211, 153, 0.2)" : "rgba(0, 240, 255, 0.12)"}`,
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    {feature.tag}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-6">
+
+                <h3
+                  className="text-lg font-bold text-white mb-2"
+                  style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  {feature.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
                   {feature.desc}
                 </p>
-                <ul className="space-y-3">
-                  {feature.bullets.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-xs font-medium text-white/40">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan/50" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <PlatformSection />
+      {/* ================================================================ */}
+      {/* HOW IT WORKS — 3-Step Flow */}
+      {/* ================================================================ */}
+      <section id="how-it-works" className="py-20 md:py-28 px-4 relative">
+        {/* Sonar bg */}
+        <div className="absolute inset-0 sonar-bg opacity-20 pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-14">
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
+              style={{
+                color: "#00F0FF",
+                background: "rgba(0, 240, 255, 0.06)",
+                border: "1px solid rgba(0, 240, 255, 0.15)",
+                fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+              }}
+            >
+              The Process
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-black mb-4 text-white"
+              style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+            >
+              Three Steps to{" "}
+              <span className="text-gradient">Smarter Operations</span>
+            </motion.h2>
+            <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Our tools follow a simple philosophy: sense the situation, navigate the
+              options, act with confidence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                step: "01",
+                icon: <Eye className="w-6 h-6" />,
+                title: "Sense",
+                desc: "Capture photos, ingest data, monitor systems. Our AI processes the raw inputs and identifies what matters — parts, patterns, anomalies.",
+                accent: "#00F0FF",
+              },
+              {
+                step: "02",
+                icon: <Waves className="w-6 h-6" />,
+                title: "Navigate",
+                desc: "Cross-reference manufacturers, check compatibility, source from multiple vendors. We handle the complexity so you can focus on the work.",
+                accent: "#4DFAFF",
+              },
+              {
+                step: "03",
+                icon: <Zap className="w-6 h-6" />,
+                title: "Act",
+                desc: "Generate purchase orders, export BOMs, schedule maintenance. From data to completed task — measured, tracked, and verified.",
+                accent: "#34D399",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="relative p-6 rounded-2xl text-center"
+                style={{
+                  background: "rgba(0, 18, 34, 0.5)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                {/* Step number */}
+                <span
+                  className="text-[80px] font-black leading-none absolute top-2 right-4 pointer-events-none"
+                  style={{
+                    color: "transparent",
+                    WebkitTextStroke: `1px rgba(0, 240, 255, 0.06)`,
+                    fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                  }}
+                >
+                  {item.step}
+                </span>
+
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 relative z-10"
+                  style={{
+                    background: `rgba(${item.accent === "#34D399" ? "52, 211, 153" : "0, 240, 255"}, 0.08)`,
+                    border: `1px solid ${item.accent}25`,
+                    color: item.accent,
+                  }}
+                >
+                  {item.icon}
+                </div>
+
+                <h3
+                  className="text-xl font-black mb-3 text-white relative z-10"
+                  style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed relative z-10"
+                  style={{ color: "rgba(255,255,255,0.45)" }}
+                >
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* PLATFORM SECTION — PicSea Spotlight */}
+      {/* ================================================================ */}
+      <section
+        id="platform"
+        className="py-20 md:py-28 px-4 relative"
+        style={{ background: "rgba(0, 26, 46, 0.2)" }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: text */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span
+                className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
+                style={{
+                  color: "#34D399",
+                  background: "rgba(52, 211, 153, 0.08)",
+                  border: "1px solid rgba(52, 211, 153, 0.2)",
+                  fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                }}
+              >
+                Flagship Product
+              </span>
+              <h2
+                className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white"
+                style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+              >
+                PicSea
+                <br />
+                <span className="text-gradient">Procurement Intelligence</span>
+              </h2>
+              <p
+                className="text-base mb-8 leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.5)" }}
+              >
+                Photograph a marine part. Get instant identification, dealer pricing,
+                stock levels, and compatibility checks. Build a complete BOM and export a
+                purchase order — all from your phone or tablet on the dock.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: <Camera className="w-4 h-4" />, label: "Photo → Part ID" },
+                  { icon: <Package className="w-4 h-4" />, label: "Multi-vendor sourcing" },
+                  { icon: <FileText className="w-4 h-4" />, label: "PDF/CSV export" },
+                  { icon: <Anchor className="w-4 h-4" />, label: "Vessel-aware matching" },
+                ].map((feat, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{
+                        background: "rgba(0, 240, 255, 0.06)",
+                        border: "1px solid rgba(0, 240, 255, 0.12)",
+                        color: "#00F0FF",
+                      }}
+                    >
+                      {feat.icon}
+                    </div>
+                    <span className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.65)" }}>
+                      {feat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right: visual */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div
+                className="aspect-square rounded-full flex items-center justify-center relative overflow-hidden"
+                style={{
+                  background: "rgba(0, 26, 46, 0.4)",
+                  border: "1px solid rgba(0, 240, 255, 0.08)",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                <div className="absolute inset-0 grid-bg opacity-10 rounded-full" />
+                {/* Animated rings */}
+                {[1, 2, 3].map((ring) => (
+                  <motion.div
+                    key={ring}
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 25 + ring * 12,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute border rounded-full"
+                    style={{
+                      width: `${55 + ring * 15}%`,
+                      height: `${55 + ring * 15}%`,
+                      borderColor: "rgba(0, 240, 255, 0.05)",
+                    }}
+                  />
+                ))}
+                {/* Center */}
+                <div className="relative z-10 text-center">
+                  <div
+                    className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center"
+                    style={{
+                      background: "rgba(0, 240, 255, 0.08)",
+                      border: "1px solid rgba(0, 240, 255, 0.2)",
+                      boxShadow: "0 0 30px rgba(0, 240, 255, 0.15)",
+                    }}
+                  >
+                    <Camera className="w-10 h-10" style={{ color: "#00F0FF" }} />
+                  </div>
+                  <span
+                    className="text-xs font-black tracking-[0.2em] uppercase"
+                    style={{
+                      color: "rgba(0, 240, 255, 0.6)",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    Photo → BOM → PO
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* CONTACT — CRM Form */}
+      {/* ================================================================ */}
       <ContactSection />
+
+      {/* ================================================================ */}
+      {/* FOOTER */}
+      {/* ================================================================ */}
       <Footer />
     </main>
   );

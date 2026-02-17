@@ -1,74 +1,74 @@
+"use client";
+
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Github, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
-    return (
-        <footer className="bg-brand-navy/50 py-16 border-t border-white/5">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                            <div className="relative w-10 h-10 flex items-center justify-center">
-                                <Image
-                                    src="/logo-new.png"
-                                    alt="7-SENSE Logo"
-                                    width={40}
-                                    height={40}
-                                    className="object-contain"
-                                />
-                            </div>
-                            <span className="text-xl font-bold tracking-tight text-white uppercase">7-SENSE</span>
-                        </div>
-                        <p className="text-white/50 text-sm max-w-xs leading-relaxed">
-                            Intelligent marine operations and integrated technology solutions for the modern maritime industry.
-                        </p>
-                    </div>
+  return (
+    <footer
+      className="relative py-12 px-4"
+      style={{
+        background: "rgba(0, 6, 12, 0.9)",
+        borderTop: "1px solid rgba(0, 240, 255, 0.06)",
+      }}
+    >
+      {/* Top glow line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.15) 30%, rgba(0, 240, 255, 0.2) 50%, rgba(0, 240, 255, 0.15) 70%, transparent)",
+        }}
+      />
 
-                    <div>
-                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Solution</h4>
-                        <ul className="space-y-2">
-                            <li><Link href="#platform" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">PicSea Engine</Link></li>
-                            <li><Link href="#capabilities" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Digital Twin</Link></li>
-                            <li><Link href="#contact" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Contact Engineering</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Company</h4>
-                        <ul className="space-y-2">
-                            <li><Link href="#platform" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">Our Vision</Link></li>
-                            <li><Link href="#contact" className="text-white/50 hover:text-brand-cyan text-sm transition-colors">About 7-SENSE</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">Social</h4>
-                        <div className="flex gap-4">
-                            <Link href="#" className="text-white/50 hover:text-brand-cyan transition-colors">
-                                <Twitter className="w-5 h-5" />
-                            </Link>
-                            <Link href="#" className="text-white/50 hover:text-brand-cyan transition-colors">
-                                <Linkedin className="w-5 h-5" />
-                            </Link>
-                            <Link href="#" className="text-white/50 hover:text-brand-cyan transition-colors">
-                                <Github className="w-5 h-5" />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-white/30 text-xs">
-                        © 2026 MySealium Holdings. All rights reserved. 7Sense is a registered trademark.
-                    </p>
-                    <div className="flex gap-8">
-                        <Link href="#" className="text-white/30 hover:text-white text-xs transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="text-white/30 hover:text-white text-xs transition-colors">Terms of Service</Link>
-                    </div>
-                </div>
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+          {/* Logo & identity */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo-primary-circle.jpg"
+              alt="7-SENSE"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
+            <div>
+              <span
+                className="text-sm font-black tracking-[0.12em] uppercase text-white block"
+                style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+              >
+                7-SENSE Marine
+              </span>
+              <span className="text-[10px] tracking-wider" style={{ color: "rgba(0, 240, 255, 0.5)" }}>
+                Sense. Navigate. Act.
+              </span>
             </div>
-        </footer>
-    );
+          </div>
+
+          {/* Links */}
+          <div className="flex items-center gap-6 text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
+            <a href="#capabilities" className="hover:text-[#00F0FF] transition-colors duration-200">Capabilities</a>
+            <a href="#how-it-works" className="hover:text-[#00F0FF] transition-colors duration-200">How It Works</a>
+            <a href="#platform" className="hover:text-[#00F0FF] transition-colors duration-200">Platform</a>
+            <a href="#contact" className="hover:text-[#00F0FF] transition-colors duration-200">Contact</a>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px w-full mb-6" style={{ background: "rgba(255,255,255,0.05)" }} />
+
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]" style={{ color: "rgba(255,255,255,0.25)" }}>
+          <span>© {new Date().getFullYear()} 7-Sense Marine LLC. All rights reserved.</span>
+          <div className="flex items-center gap-1.5">
+            <a href="mailto:jannas@7sense.net" className="hover:text-[#00F0FF] transition-colors duration-200">
+              jannas@7sense.net
+            </a>
+            <span style={{ color: "rgba(255,255,255,0.15)" }}>•</span>
+            <span>Portland, ME</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

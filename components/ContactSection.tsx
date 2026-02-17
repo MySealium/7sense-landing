@@ -2,186 +2,405 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle2, User, Mail, MessageSquare, Building2, ChevronDown } from "lucide-react";
+import {
+  Send, CheckCircle, User, Mail, MessageSquare,
+  Building2, ChevronDown, Anchor
+} from "lucide-react";
 
 export function ContactSection() {
-    const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        organization: "",
-        project: "Workflow Automation",
-        message: ""
-    });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    organization: "",
+    project: "Consulting",
+    message: "",
+  });
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setStatus("submitting");
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
 
-        try {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-            if (!response.ok) throw new Error("Submission failed");
+      if (!response.ok) throw new Error("Submission failed");
 
-            setStatus("success");
-        } catch (error) {
-            console.error(error);
-            alert("Failed to send message. Please try again later.");
-            setStatus("idle");
-        }
-    };
+      setStatus("success");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message. Please try again later.");
+      setStatus("idle");
+    }
+  };
 
-    return (
-        <section id="contact" className="py-24 px-4 relative">
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="inline-block px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-xs font-bold uppercase tracking-widest mb-6"
-                    >
-                        Get In Touch
-                    </motion.div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Let's Build Your Workflow</h2>
-                    <p className="text-white/50">Tell us about your operation. We'll show you where the untapped value is.</p>
+  const inputStyle: React.CSSProperties = {
+    background: "rgba(0, 26, 46, 0.5)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: "12px",
+    padding: "12px 16px",
+    color: "#FFFFFF",
+    fontSize: "14px",
+    fontFamily: "'Inter', sans-serif",
+    outline: "none",
+    width: "100%",
+    transition: "border-color 0.2s, box-shadow 0.2s",
+  };
+
+  return (
+    <section id="contact" className="py-20 md:py-28 px-4 relative">
+      {/* Ambient glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(0, 240, 255, 0.03) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        <div className="text-center mb-12">
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
+            style={{
+              color: "#00F0FF",
+              background: "rgba(0, 240, 255, 0.06)",
+              border: "1px solid rgba(0, 240, 255, 0.15)",
+              fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+            }}
+          >
+            Get In Touch
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-black mb-4 text-white"
+            style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+          >
+            Let&apos;s Talk <span className="text-gradient">Marine</span>
+          </motion.h2>
+          <p style={{ color: "rgba(255,255,255,0.45)" }}>
+            Tell us about your operation. Whether you run a shop, manage a fleet, or
+            need a custom solution — we&apos;re here to help.
+          </p>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          className="rounded-2xl p-6 md:p-10 relative overflow-hidden"
+          style={{
+            background: "rgba(0, 18, 34, 0.7)",
+            border: "1px solid rgba(0, 240, 255, 0.1)",
+            backdropFilter: "blur(20px)",
+            boxShadow:
+              "0 0 40px rgba(0, 240, 255, 0.04), 0 20px 60px rgba(0, 0, 0, 0.4)",
+          }}
+        >
+          {/* Viewport corners */}
+          {["top-4 left-4 border-t border-l", "top-4 right-4 border-t border-r", "bottom-4 left-4 border-b border-l", "bottom-4 right-4 border-b border-r"].map(
+            (classes, i) => (
+              <div
+                key={i}
+                className={`absolute ${classes} w-5 h-5 pointer-events-none`}
+                style={{ borderColor: "rgba(0, 240, 255, 0.15)" }}
+              />
+            )
+          )}
+
+          <AnimatePresence mode="wait">
+            {status === "success" ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="text-center py-12"
+              >
+                <div
+                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                  style={{
+                    background: "rgba(52, 211, 153, 0.1)",
+                    border: "1px solid rgba(52, 211, 153, 0.25)",
+                    boxShadow: "0 0 20px rgba(52, 211, 153, 0.15)",
+                  }}
+                >
+                  <CheckCircle className="w-10 h-10" style={{ color: "#34D399" }} />
+                </div>
+                <h3
+                  className="text-2xl font-black mb-2 text-white"
+                  style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  Message Received
+                </h3>
+                <p className="mb-8" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  We&apos;ll get back to you within 24 hours. In the meantime, feel free
+                  to reach out directly at{" "}
+                  <a
+                    href="mailto:jannas@7sense.net"
+                    style={{ color: "#00F0FF" }}
+                  >
+                    jannas@7sense.net
+                  </a>
+                </p>
+                <button
+                  onClick={() => {
+                    setStatus("idle");
+                    setFormData({
+                      name: "",
+                      email: "",
+                      organization: "",
+                      project: "Consulting",
+                      message: "",
+                    });
+                  }}
+                  className="px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-200"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    color: "rgba(255,255,255,0.7)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  Send Another Message
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 md:grid-cols-2 gap-5"
+              >
+                {/* Name */}
+                <div>
+                  <label
+                    className="text-[10px] uppercase tracking-[0.15em] font-bold block mb-2 flex items-center gap-1.5"
+                    style={{
+                      color: "rgba(255,255,255,0.35)",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    <User className="w-3 h-3" /> Full Name
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="James Mariner"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    style={inputStyle}
+                    onFocus={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
+                      (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
+                    }}
+                    onBlur={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = "rgba(255,255,255,0.08)";
+                      (e.target as HTMLInputElement).style.boxShadow = "none";
+                    }}
+                  />
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="glass-card rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden"
-                >
-                    <AnimatePresence mode="wait">
-                        {status === "success" ? (
-                            <motion.div
-                                key="success"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0 }}
-                                className="text-center py-12"
-                            >
-                                <div className="w-20 h-20 bg-brand-cyan/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-brand-cyan/30">
-                                    <CheckCircle2 className="w-10 h-10 text-brand-cyan" />
-                                </div>
-                                <h3 className="text-2xl font-bold mb-2">Message Sent</h3>
-                                <p className="text-white/50 mb-8">Our team will reach out to your organization within 24 hours.</p>
-                                <button
-                                    onClick={() => setStatus("idle")}
-                                    className="px-6 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg border border-white/10 transition-all"
-                                >
-                                    Send Another
-                                </button>
-                            </motion.div>
-                        ) : (
-                            <motion.form
-                                key="form"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                onSubmit={handleSubmit}
-                                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                            >
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest flex items-center gap-2">
-                                        <User className="w-3 h-3" /> Full Name
-                                    </label>
-                                    <input
-                                        required
-                                        type="text"
-                                        placeholder="James Mariner"
-                                        value={formData.name}
-                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all"
-                                    />
-                                </div>
+                {/* Email */}
+                <div>
+                  <label
+                    className="text-[10px] uppercase tracking-[0.15em] font-bold block mb-2 flex items-center gap-1.5"
+                    style={{
+                      color: "rgba(255,255,255,0.35)",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    <Mail className="w-3 h-3" /> Email Address
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    placeholder="james@fleet.com"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    style={inputStyle}
+                    onFocus={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
+                      (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
+                    }}
+                    onBlur={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = "rgba(255,255,255,0.08)";
+                      (e.target as HTMLInputElement).style.boxShadow = "none";
+                    }}
+                  />
+                </div>
 
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest flex items-center gap-2">
-                                        <Mail className="w-3 h-3" /> Email Address
-                                    </label>
-                                    <input
-                                        required
-                                        type="email"
-                                        placeholder="james@fleet.com"
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all"
-                                    />
-                                </div>
+                {/* Organization */}
+                <div>
+                  <label
+                    className="text-[10px] uppercase tracking-[0.15em] font-bold block mb-2 flex items-center gap-1.5"
+                    style={{
+                      color: "rgba(255,255,255,0.35)",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    <Building2 className="w-3 h-3" /> Organization
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="Portland Marine Electric"
+                    value={formData.organization}
+                    onChange={(e) =>
+                      setFormData({ ...formData, organization: e.target.value })
+                    }
+                    style={inputStyle}
+                    onFocus={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
+                      (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
+                    }}
+                    onBlur={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = "rgba(255,255,255,0.08)";
+                      (e.target as HTMLInputElement).style.boxShadow = "none";
+                    }}
+                  />
+                </div>
 
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest flex items-center gap-2">
-                                        <Building2 className="w-3 h-3" /> Organization
-                                    </label>
-                                    <input
-                                        required
-                                        type="text"
-                                        placeholder="Oceanic Logistics"
-                                        value={formData.organization}
-                                        onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all"
-                                    />
-                                </div>
+                {/* Project Type */}
+                <div>
+                  <label
+                    className="text-[10px] uppercase tracking-[0.15em] font-bold block mb-2 flex items-center gap-1.5"
+                    style={{
+                      color: "rgba(255,255,255,0.35)",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    <Anchor className="w-3 h-3" /> Interest Area
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={formData.project}
+                      onChange={(e) =>
+                        setFormData({ ...formData, project: e.target.value })
+                      }
+                      style={{
+                        ...inputStyle,
+                        appearance: "none" as const,
+                        paddingRight: "40px",
+                      }}
+                      onFocus={(e) => {
+                        (e.target as HTMLSelectElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
+                        (e.target as HTMLSelectElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
+                      }}
+                      onBlur={(e) => {
+                        (e.target as HTMLSelectElement).style.borderColor = "rgba(255,255,255,0.08)";
+                        (e.target as HTMLSelectElement).style.boxShadow = "none";
+                      }}
+                    >
+                      <option value="Consulting" style={{ background: "#001A2E" }}>
+                        Consulting
+                      </option>
+                      <option value="PicSea Demo" style={{ background: "#001A2E" }}>
+                        PicSea Demo
+                      </option>
+                      <option value="Fleet Operations" style={{ background: "#001A2E" }}>
+                        Fleet Operations
+                      </option>
+                      <option value="Custom Integration" style={{ background: "#001A2E" }}>
+                        Custom Integration
+                      </option>
+                      <option value="Partnership" style={{ background: "#001A2E" }}>
+                        Partnership
+                      </option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
+                      style={{ color: "rgba(255,255,255,0.3)" }}
+                    />
+                  </div>
+                </div>
 
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest flex items-center gap-2">
-                                        <ChevronDown className="w-3 h-3" /> Interest Area
-                                    </label>
-                                    <select
-                                        value={formData.project}
-                                        onChange={(e) => setFormData({ ...formData, project: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all appearance-none"
-                                    >
-                                        <option value="Workflow Automation" className="bg-[#0a0a0f]">Workflow Automation</option>
-                                        <option value="Fleet Operations" className="bg-[#0a0a0f]">Fleet Operations</option>
-                                        <option value="Procurement Integration" className="bg-[#0a0a0f]">Procurement Integration</option>
-                                        <option value="Custom Integration" className="bg-[#0a0a0f]">Custom Integration</option>
-                                    </select>
-                                </div>
+                {/* Message */}
+                <div className="md:col-span-2">
+                  <label
+                    className="text-[10px] uppercase tracking-[0.15em] font-bold block mb-2 flex items-center gap-1.5"
+                    style={{
+                      color: "rgba(255,255,255,0.35)",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                  >
+                    <MessageSquare className="w-3 h-3" /> Message
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    placeholder="Tell us about your operation, the challenges you face, and what you're looking for..."
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    style={{
+                      ...inputStyle,
+                      resize: "none" as const,
+                    }}
+                    onFocus={(e) => {
+                      (e.target as HTMLTextAreaElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
+                      (e.target as HTMLTextAreaElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
+                    }}
+                    onBlur={(e) => {
+                      (e.target as HTMLTextAreaElement).style.borderColor = "rgba(255,255,255,0.08)";
+                      (e.target as HTMLTextAreaElement).style.boxShadow = "none";
+                    }}
+                  />
+                </div>
 
-                                <div className="md:col-span-2 space-y-2">
-                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest flex items-center gap-2">
-                                        <MessageSquare className="w-3 h-3" /> Message
-                                    </label>
-                                    <textarea
-                                        required
-                                        rows={4}
-                                        placeholder="Describe your requirements..."
-                                        value={formData.message}
-                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan/50 focus:bg-white/10 transition-all resize-none"
-                                    />
-                                </div>
-
-                                <div className="md:col-span-2 pt-4">
-                                    <button
-                                        type="submit"
-                                        disabled={status === "submitting"}
-                                        className="w-full py-4 bg-brand-cyan hover:bg-brand-cyan/80 disabled:opacity-50 text-black font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-cyan/10"
-                                    >
-                                        {status === "submitting" ? (
-                                            <span className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                                        ) : (
-                                            <>
-                                                Initialize Contact
-                                                <Send className="w-4 h-4" />
-                                            </>
-                                        )}
-                                    </button>
-                                </div>
-                            </motion.form>
-                        )}
-                    </AnimatePresence>
-                </motion.div>
-            </div>
-        </section>
-    );
+                {/* Submit */}
+                <div className="md:col-span-2 pt-2">
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="w-full py-4 rounded-xl font-black text-sm transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+                    style={{
+                      background: "#00F0FF",
+                      color: "#000C18",
+                      fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                    }}
+                    onMouseEnter={(e) =>
+                      ((e.currentTarget as HTMLElement).style.boxShadow =
+                        "0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.1)")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.currentTarget as HTMLElement).style.boxShadow = "none")
+                    }
+                  >
+                    {status === "submitting" ? (
+                      <span
+                        className="w-5 h-5 border-2 border-transparent rounded-full animate-spin"
+                        style={{ borderTopColor: "#000C18", borderRightColor: "rgba(0, 12, 24, 0.3)" }}
+                      />
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </motion.form>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

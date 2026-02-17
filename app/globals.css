@@ -1,17 +1,12 @@
 @import "tailwindcss";
-
-/* 7-SENSE Centralized Design Tokens (Refined Kit 2026) */
 @import "./7sense-tokens.css";
 
 @theme {
-  /* Refined Kit 2026 - Aligned */
   --color-brand-cyan: #00F0FF;
   --color-brand-navy: #000C18;
   --color-brand-navy-light: #002B45;
-
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --font-heading: var(--font-montserrat), 'Montserrat', sans-serif;
 }
 
 html {
@@ -19,7 +14,7 @@ html {
 }
 
 :root {
-  --background: #000C18; /* Aligned to Deep Abyss Blue */
+  --background: #000C18;
   --foreground: #ffffff;
 }
 
@@ -27,29 +22,111 @@ section {
   scroll-margin-top: 80px;
 }
 
+::selection {
+  background: rgba(0, 240, 255, 0.25);
+  color: #FFFFFF;
+}
+
 @layer base {
   body {
     background: var(--background);
     color: var(--foreground);
     @apply antialiased;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(0, 43, 69, 0.3) 0%, transparent 60%),
+      radial-gradient(ellipse at 100% 100%, rgba(0, 12, 24, 0.6) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   }
 }
 
-/* Custom Utilities - Aligned to Refined Kit 2026 */
 @layer utilities {
   .glass-card {
-    background: rgba(0, 43, 69, 0.4); /* Oceanic Navy glassmorphism */
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 43, 69, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-nav {
+    background: rgba(0, 10, 20, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+    box-shadow: 0 1px 0 rgba(0, 240, 255, 0.06), 0 4px 24px rgba(0, 0, 0, 0.4);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan to-cyan-400;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00F0FF 0%, #4DFAFF 50%, #0080FF 100%);
   }
 
   .grid-bg {
-    background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .sonar-bg {
+    background-image:
+      radial-gradient(circle, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  }
+
+  .glow-text-sm {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
   }
 }
+
+/* Keyframes */
+@keyframes sonar-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes ocean-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.2; }
+  100% { transform: translateY(-140px) translateX(30px) scale(0.4); opacity: 0; }
+}
+
+@keyframes depth-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 43, 69, 0.8); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 240, 255, 0.3); }
