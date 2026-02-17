@@ -77,11 +77,11 @@ export function ContactSection() {
             className="text-3xl md:text-5xl font-black mb-4 text-white"
             style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
           >
-            Ready to <span className="text-gradient">Streamline Your Shop?</span>
+            Let&apos;s <span className="text-gradient">Build Something</span>
           </motion.h2>
           <p style={{ color: "rgba(255,255,255,0.45)" }}>
-            Tell us about your operation. Whether you&apos;re a one-person shop or managing a fleet — we&apos;re
-            built for the people who actually fix the boats.
+            Whether you run a shop, build marine hardware, or operate a fleet — tell us
+            what you&apos;re working on. We&apos;ll tell you how we can help.
           </p>
         </div>
 

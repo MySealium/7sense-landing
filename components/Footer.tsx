@@ -47,9 +47,9 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
-            <a href="#capabilities" className="hover:text-[#00F0FF] transition-colors duration-200">What We Build</a>
-            <a href="#how-it-works" className="hover:text-[#00F0FF] transition-colors duration-200">How It Works</a>
-            <a href="#picsea" className="hover:text-[#00F0FF] transition-colors duration-200">PicSea</a>
+            <a href="#capabilities" className="hover:text-[#00F0FF] transition-colors duration-200">What We Do</a>
+            <a href="#who-we-serve" className="hover:text-[#00F0FF] transition-colors duration-200">Who We Serve</a>
+            <a href="#products" className="hover:text-[#00F0FF] transition-colors duration-200">Products</a>
             <a href="#contact" className="hover:text-[#00F0FF] transition-colors duration-200">Contact</a>
           </div>
         </div>

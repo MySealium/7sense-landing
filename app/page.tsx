@@ -4,9 +4,9 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  Camera, Package, FileText, Anchor,
-  ArrowRight, CheckCircle, Zap, Search,
-  ClipboardCheck, Truck, ShieldCheck, Timer,
+  Anchor, ArrowRight, Radio, Eye, Cpu, Wrench,
+  Ship, Building2, Network, Camera, Shield,
+  BarChart3, Zap, Globe, CheckCircle,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -31,7 +31,7 @@ export default function Home() {
       <Navbar />
 
       {/* ================================================================ */}
-      {/* HERO SECTION */}
+      {/* HERO */}
       {/* ================================================================ */}
       <section className="relative pt-28 pb-20 md:pt-40 md:pb-32 px-4">
         {/* Floating particles */}
@@ -58,7 +58,7 @@ export default function Home() {
         ))}
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          {/* Logo + Sonar Animation */}
+          {/* Logo + Sonar */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,6 @@ export default function Home() {
             className="flex flex-col items-center mb-8"
           >
             <div className="relative w-20 h-20 mb-6">
-              {/* Sonar rings */}
               <div
                 className="absolute inset-0 rounded-full"
                 style={{
@@ -105,7 +104,7 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Your Shop&apos;s Operations Partner
+              Marine Technology
             </span>
           </motion.div>
 
@@ -117,9 +116,7 @@ export default function Home() {
             className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight mb-6 leading-[1.05]"
             style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
           >
-            <span className="text-white">We Handle the Parts.</span>
-            <br />
-            <span className="text-gradient glow-text">You Fix the Boats.</span>
+            <span className="text-gradient glow-text">Sense. Navigate. Act.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -127,11 +124,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.5)" }}
+            className="text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.55)" }}
           >
-            Field-tested tools for marine professionals. Snap a photo, identify the right parts,
-            build your order — backed by 29,000+ verified marine records.
+            We build technology for the marine industry. Data systems, field tools, and
+            operational intelligence — designed for people who work on the water.
           </motion.p>
 
           {/* CTAs */}
@@ -150,11 +147,11 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Get a Demo Account
+              Talk to Us
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#how-it-works"
+              href="#capabilities"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 text-center hover:border-[rgba(0,240,255,0.25)] hover:text-[#00F0FF]"
               style={{
                 background: "rgba(255,255,255,0.04)",
@@ -162,40 +159,14 @@ export default function Home() {
                 border: "1px solid rgba(255,255,255,0.08)",
               }}
             >
-              See How It Works
+              What We Do
             </a>
-          </motion.div>
-
-          {/* Social proof metrics */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
-          >
-            {[
-              { value: "29,000+", label: "Marine parts indexed" },
-              { value: "4 min", label: "Avg. search-to-order" },
-              { value: "12V/24V", label: "Cross-checked compatibility" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div
-                  className="text-xl md:text-2xl font-black"
-                  style={{ color: "#00F0FF", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </motion.div>
         </div>
       </section>
 
       {/* ================================================================ */}
-      {/* CAPABILITIES SECTION */}
+      {/* CAPABILITIES — 4 Pillars */}
       {/* ================================================================ */}
       <section id="capabilities" className="py-20 md:py-28 px-4 relative">
         <div className="max-w-5xl mx-auto">
@@ -212,7 +183,7 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              What We Build
+              What We Do
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -224,31 +195,37 @@ export default function Home() {
               Built for the Dock,{" "}
               <span className="text-gradient">Not the Boardroom</span>
             </motion.h2>
-            <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Purpose-built tools for marine professionals. Reliable data under pressure —
-              not generic software with a boat icon.
+            <p className="max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Every tool we build solves a problem we&apos;ve seen firsthand. 10 years in marine
+              operations taught us what works under pressure — and what doesn&apos;t.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               {
-                icon: <Camera className="w-5 h-5" />,
-                title: "Fast Parts ID",
-                desc: "Snap a photo, get matched parts from 29,000+ marine records. Manufacturer, part number, pricing, and stock — in seconds, not hours.",
+                icon: <Eye className="w-5 h-5" />,
+                title: "Marine Data Intelligence",
+                desc: "29,000+ indexed marine parts. Verified compatibility data. Manufacturer specs cross-checked against real-world installs. The dataset that powers everything else.",
+                tag: "Core",
+              },
+              {
+                icon: <Wrench className="w-5 h-5" />,
+                title: "Field Operations Tools",
+                desc: "Purpose-built software for technicians and shops. Parts identification, job planning, bill of materials, purchase orders — from your phone, on the dock.",
                 tag: "Live",
               },
               {
-                icon: <ClipboardCheck className="w-5 h-5" />,
-                title: "Reliable Job Planning",
-                desc: "Auto-built bills of materials with cross-checked fits. Your BOM assembles itself as you photograph the job — you verify, not create.",
-                tag: "Live",
+                icon: <Network className="w-5 h-5" />,
+                title: "Systems Integration",
+                desc: "We connect marine hardware, sensors, and data sources into a single operational picture. Your equipment talks to each other — and tells you what matters.",
+                tag: "Services",
               },
               {
-                icon: <Truck className="w-5 h-5" />,
-                title: "Trusted Ordering",
-                desc: "Pick vendors, compare pricing, generate purchase orders — backed by real boat data and verified compatibility. No guesswork.",
-                tag: "Live",
+                icon: <Cpu className="w-5 h-5" />,
+                title: "Action Modeling",
+                desc: "Operational intelligence that turns raw marine data into decisions. Predictive maintenance, anomaly detection, pattern recognition — models built for how boats actually work.",
+                tag: "Services",
               },
             ].map((feature, i) => (
               <motion.div
@@ -264,7 +241,6 @@ export default function Home() {
                   backdropFilter: "blur(12px)",
                 }}
               >
-                {/* Corner glow */}
                 <div
                   className="absolute top-0 right-0 w-20 h-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -286,9 +262,13 @@ export default function Home() {
                   <span
                     className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
                     style={{
-                      background: "rgba(52, 211, 153, 0.1)",
-                      color: "#34D399",
-                      border: "1px solid rgba(52, 211, 153, 0.2)",
+                      background: feature.tag === "Live"
+                        ? "rgba(52, 211, 153, 0.1)"
+                        : "rgba(0, 240, 255, 0.06)",
+                      color: feature.tag === "Live" ? "#34D399" : "#00F0FF",
+                      border: feature.tag === "Live"
+                        ? "1px solid rgba(52, 211, 153, 0.2)"
+                        : "1px solid rgba(0, 240, 255, 0.15)",
                       fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                     }}
                   >
@@ -312,10 +292,9 @@ export default function Home() {
       </section>
 
       {/* ================================================================ */}
-      {/* HOW IT WORKS — 3-Step Flow */}
+      {/* WHO WE SERVE */}
       {/* ================================================================ */}
-      <section id="how-it-works" className="py-20 md:py-28 px-4 relative">
-        {/* Sonar bg */}
+      <section id="who-we-serve" className="py-20 md:py-28 px-4 relative">
         <div className="absolute inset-0 sonar-bg opacity-20 pointer-events-none" />
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -332,7 +311,7 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              How It Works
+              Who We Serve
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -341,37 +320,34 @@ export default function Home() {
               className="text-3xl md:text-5xl font-black mb-4 text-white"
               style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
             >
-              Three Steps.{" "}
-              <span className="text-gradient">Zero Guesswork.</span>
+              Marine Professionals.{" "}
+              <span className="text-gradient">Full Stop.</span>
             </motion.h2>
             <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Your photos are matched against 29,000+ verified marine parts.
-              Cross-checked for fit. Priced from multiple vendors.
+              We work exclusively with people who make their living on the water.
+              If you build, maintain, or operate vessels — we build for you.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                step: "01",
-                icon: <Camera className="w-6 h-6" />,
-                title: "Snap",
-                desc: "Photograph the part, the panel, or the whole system. Your phone captures everything the system needs — no forms, no data entry.",
-                accent: "#00F0FF",
+                icon: <Wrench className="w-6 h-6" />,
+                title: "Boatyards & Marine Shops",
+                desc: "Service technicians, electricians, and shop managers. We help you find the right parts, plan jobs faster, and keep accurate records without the paperwork.",
+                examples: "Parts ID · Job planning · Purchase orders · Service records",
               },
               {
-                step: "02",
-                icon: <ClipboardCheck className="w-6 h-6" />,
-                title: "Verify",
-                desc: "Review the matched parts list with pricing and availability. Confirm what's right, tap to fix what isn't. Your BOM builds itself.",
-                accent: "#4DFAFF",
+                icon: <Radio className="w-6 h-6" />,
+                title: "Marine OEMs & Hardware",
+                desc: "Manufacturers and distributors of marine electronics, sensors, and systems. We integrate your hardware into operational workflows and extend its value.",
+                examples: "Data integration · Action modeling · Field deployment",
               },
               {
-                step: "03",
-                icon: <Zap className="w-6 h-6" />,
-                title: "Order",
-                desc: "Pick your vendors, generate the purchase order, and get back to work. Parts arrive, job gets done, records are kept.",
-                accent: "#34D399",
+                icon: <Ship className="w-6 h-6" />,
+                title: "Fleet & Vessel Operators",
+                desc: "Commercial operators, yacht managers, and charter companies. We connect your onboard systems into a single operational picture across your fleet.",
+                examples: "Fleet intelligence · Maintenance tracking · System monitoring",
               },
             ].map((item, i) => (
               <motion.div
@@ -380,47 +356,41 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="relative p-6 rounded-2xl text-center"
+                className="p-6 rounded-2xl relative overflow-hidden group hover:border-[rgba(0,240,255,0.2)] transition-all duration-300"
                 style={{
                   background: "rgba(0, 18, 34, 0.5)",
                   border: "1px solid rgba(255,255,255,0.06)",
                   backdropFilter: "blur(12px)",
                 }}
               >
-                {/* Step number */}
-                <span
-                  className="text-[80px] font-black leading-none absolute top-2 right-4 pointer-events-none"
-                  style={{
-                    color: "transparent",
-                    WebkitTextStroke: "1px rgba(0, 240, 255, 0.06)",
-                    fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
-                  }}
-                >
-                  {item.step}
-                </span>
-
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 relative z-10"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
                   style={{
-                    background: `rgba(${item.accent === "#34D399" ? "52, 211, 153" : "0, 240, 255"}, 0.08)`,
-                    border: `1px solid ${item.accent}25`,
-                    color: item.accent,
+                    background: "rgba(0, 240, 255, 0.08)",
+                    border: "1px solid rgba(0, 240, 255, 0.15)",
+                    color: "#00F0FF",
                   }}
                 >
                   {item.icon}
                 </div>
 
                 <h3
-                  className="text-xl font-black mb-3 text-white relative z-10"
+                  className="text-lg font-black mb-3 text-white"
                   style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
                 >
                   {item.title}
                 </h3>
                 <p
-                  className="text-sm leading-relaxed relative z-10"
+                  className="text-sm leading-relaxed mb-4"
                   style={{ color: "rgba(255,255,255,0.45)" }}
                 >
                   {item.desc}
+                </p>
+                <p
+                  className="text-xs font-medium"
+                  style={{ color: "rgba(0, 240, 255, 0.5)" }}
+                >
+                  {item.examples}
                 </p>
               </motion.div>
             ))}
@@ -429,158 +399,346 @@ export default function Home() {
       </section>
 
       {/* ================================================================ */}
-      {/* PICSEA SECTION */}
+      {/* PRODUCTS — PicSea + Future */}
       {/* ================================================================ */}
       <section
-        id="picsea"
+        id="products"
         className="py-20 md:py-28 px-4 relative"
         style={{ background: "rgba(0, 26, 46, 0.2)" }}
       >
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: text */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+          <div className="text-center mb-14">
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
+              style={{
+                color: "#00F0FF",
+                background: "rgba(0, 240, 255, 0.06)",
+                border: "1px solid rgba(0, 240, 255, 0.15)",
+                fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+              }}
             >
-              <span
-                className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
-                style={{
-                  color: "#34D399",
-                  background: "rgba(52, 211, 153, 0.08)",
-                  border: "1px solid rgba(52, 211, 153, 0.2)",
-                  fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
-                }}
-              >
-                Now Available
-              </span>
-              <h2
-                className="text-3xl md:text-5xl font-black mb-2 leading-tight text-white"
-                style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
-              >
-                PicSea
-              </h2>
-              <p
-                className="text-xl md:text-2xl font-bold mb-6"
-                style={{ color: "rgba(0, 240, 255, 0.7)", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
-              >
-                Your Dockside Parts Partner
-              </p>
-              <p
-                className="text-base mb-8 leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.5)" }}
-              >
-                Snap a photo of any marine part or system. Get instant identification,
-                dealer pricing, stock levels, and compatibility checks. Build a complete
-                bill of materials and generate a purchase order — all from your phone,
-                right there on the dock. Cuts ordering time with accurate data from real
-                marine jobs.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {[
-                  { icon: <Camera className="w-4 h-4" />, label: "Photo → Part ID" },
-                  { icon: <Package className="w-4 h-4" />, label: "Multi-vendor pricing" },
-                  { icon: <FileText className="w-4 h-4" />, label: "Auto-built BOMs" },
-                  { icon: <Anchor className="w-4 h-4" />, label: "Vessel-aware matching" },
-                ].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{
-                        background: "rgba(0, 240, 255, 0.06)",
-                        border: "1px solid rgba(0, 240, 255, 0.12)",
-                        color: "#00F0FF",
-                      }}
-                    >
-                      {feat.icon}
-                    </div>
-                    <span className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.65)" }}>
-                      {feat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:shadow-[0_0_24px_rgba(0,240,255,0.4)]"
-                style={{
-                  background: "#00F0FF",
-                  color: "#000C18",
-                  fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
-                }}
-              >
-                Get a Demo Account
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </motion.div>
-
-            {/* Right: visual */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              Products
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative"
+              className="text-3xl md:text-5xl font-black mb-4 text-white"
+              style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
             >
-              <div
-                className="aspect-square rounded-full flex items-center justify-center relative overflow-hidden"
-                style={{
-                  background: "rgba(0, 26, 46, 0.4)",
-                  border: "1px solid rgba(0, 240, 255, 0.08)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <div className="absolute inset-0 grid-bg opacity-10 rounded-full" />
-                {/* Animated rings */}
-                {[1, 2, 3].map((ring) => (
-                  <motion.div
-                    key={ring}
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 25 + ring * 12,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="absolute border rounded-full"
-                    style={{
-                      width: `${55 + ring * 15}%`,
-                      height: `${55 + ring * 15}%`,
-                      borderColor: "rgba(0, 240, 255, 0.05)",
-                    }}
-                  />
-                ))}
-                {/* Center */}
-                <div className="relative z-10 text-center">
-                  <div
-                    className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center"
-                    style={{
-                      background: "rgba(0, 240, 255, 0.08)",
-                      border: "1px solid rgba(0, 240, 255, 0.2)",
-                      boxShadow: "0 0 30px rgba(0, 240, 255, 0.15)",
-                    }}
-                  >
-                    <Camera className="w-10 h-10" style={{ color: "#00F0FF" }} />
-                  </div>
+              Tools That{" "}
+              <span className="text-gradient">Ship</span>
+            </motion.h2>
+          </div>
+
+          {/* PicSea Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl p-8 md:p-10 relative overflow-hidden mb-6"
+            style={{
+              background: "rgba(0, 18, 34, 0.6)",
+              border: "1px solid rgba(0, 240, 255, 0.1)",
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <div
+              className="absolute top-0 right-0 w-64 h-64 pointer-events-none"
+              style={{
+                background: "radial-gradient(circle at top right, rgba(0, 240, 255, 0.06) 0%, transparent 70%)",
+              }}
+            />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
                   <span
-                    className="text-xs font-black tracking-[0.2em] uppercase"
+                    className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
                     style={{
-                      color: "rgba(0, 240, 255, 0.6)",
+                      background: "rgba(52, 211, 153, 0.1)",
+                      color: "#34D399",
+                      border: "1px solid rgba(52, 211, 153, 0.2)",
                       fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                     }}
                   >
-                    Snap → Verify → Order
+                    Live
                   </span>
                 </div>
+                <h3
+                  className="text-3xl md:text-4xl font-black mb-2 text-white"
+                  style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  PicSea
+                </h3>
+                <p
+                  className="text-lg font-bold mb-4"
+                  style={{ color: "rgba(0, 240, 255, 0.7)", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  Photo-to-Part. Dock to Order.
+                </p>
+                <p
+                  className="text-sm mb-6 leading-relaxed"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                >
+                  Snap a photo of any marine part or system. Get instant identification,
+                  dealer pricing, stock levels, and compatibility checks — all backed by
+                  29,000+ verified marine records. Build a complete bill of materials and
+                  generate purchase orders from your phone.
+                </p>
+
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    { icon: <Camera className="w-3.5 h-3.5" />, label: "Photo → Part ID" },
+                    { icon: <BarChart3 className="w-3.5 h-3.5" />, label: "Multi-vendor pricing" },
+                    { icon: <Shield className="w-3.5 h-3.5" />, label: "Cross-checked fits" },
+                    { icon: <Anchor className="w-3.5 h-3.5" />, label: "Vessel-aware matching" },
+                  ].map((feat, i) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <div
+                        className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{
+                          background: "rgba(0, 240, 255, 0.06)",
+                          border: "1px solid rgba(0, 240, 255, 0.12)",
+                          color: "#00F0FF",
+                        }}
+                      >
+                        {feat.icon}
+                      </div>
+                      <span className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.6)" }}>
+                        {feat.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="https://picsea.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:shadow-[0_0_24px_rgba(0,240,255,0.4)]"
+                  style={{
+                    background: "#00F0FF",
+                    color: "#000C18",
+                    fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                  }}
+                >
+                  Try PicSea
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
-            </motion.div>
+
+              {/* Right visual */}
+              <div className="hidden lg:flex items-center justify-center">
+                <div
+                  className="w-64 h-64 rounded-full flex items-center justify-center relative"
+                  style={{
+                    background: "rgba(0, 26, 46, 0.4)",
+                    border: "1px solid rgba(0, 240, 255, 0.08)",
+                  }}
+                >
+                  {[1, 2, 3].map((ring) => (
+                    <motion.div
+                      key={ring}
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        duration: 25 + ring * 12,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="absolute border rounded-full"
+                      style={{
+                        width: `${55 + ring * 15}%`,
+                        height: `${55 + ring * 15}%`,
+                        borderColor: "rgba(0, 240, 255, 0.05)",
+                      }}
+                    />
+                  ))}
+                  <div className="relative z-10 text-center">
+                    <div
+                      className="w-20 h-20 rounded-full mx-auto mb-3 flex items-center justify-center"
+                      style={{
+                        background: "rgba(0, 240, 255, 0.08)",
+                        border: "1px solid rgba(0, 240, 255, 0.2)",
+                        boxShadow: "0 0 30px rgba(0, 240, 255, 0.15)",
+                      }}
+                    >
+                      <Camera className="w-8 h-8" style={{ color: "#00F0FF" }} />
+                    </div>
+                    <span
+                      className="text-[10px] font-black tracking-[0.2em] uppercase"
+                      style={{
+                        color: "rgba(0, 240, 255, 0.6)",
+                        fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                      }}
+                    >
+                      Snap → ID → Order
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Future products hint */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                icon: <Network className="w-5 h-5" />,
+                title: "Custom Integrations",
+                desc: "We build bespoke data pipelines and operational tools for marine businesses. Your hardware, your workflows, your data — connected and working together.",
+                cta: "Talk to Us",
+              },
+              {
+                icon: <Globe className="w-5 h-5" />,
+                title: "Partnership Programs",
+                desc: "We work with marine hardware manufacturers, distributors, and service networks to extend the value of existing products through data and intelligence.",
+                cta: "Explore Partnerships",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-6 rounded-2xl transition-all duration-300 group hover:border-[rgba(0,240,255,0.2)]"
+                style={{
+                  background: "rgba(0, 18, 34, 0.4)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                  style={{
+                    background: "rgba(0, 240, 255, 0.08)",
+                    border: "1px solid rgba(0, 240, 255, 0.15)",
+                    color: "#00F0FF",
+                  }}
+                >
+                  {item.icon}
+                </div>
+                <h3
+                  className="text-lg font-bold text-white mb-2"
+                  style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {item.desc}
+                </p>
+                <a
+                  href="#contact"
+                  className="text-xs font-bold flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+                  style={{ color: "#00F0FF" }}
+                >
+                  {item.cta}
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ================================================================ */}
-      {/* CONTACT — CRM Form */}
+      {/* WHY 7-SENSE */}
+      {/* ================================================================ */}
+      <section className="py-20 md:py-28 px-4 relative">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block text-[10px] font-bold tracking-[0.25em] uppercase px-4 py-1.5 rounded-full mb-6"
+              style={{
+                color: "#00F0FF",
+                background: "rgba(0, 240, 255, 0.06)",
+                border: "1px solid rgba(0, 240, 255, 0.15)",
+                fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+              }}
+            >
+              Why 7-SENSE
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-black mb-4 text-white"
+              style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+            >
+              We Know the{" "}
+              <span className="text-gradient">Industry</span>
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            {[
+              {
+                icon: <Anchor className="w-5 h-5" />,
+                value: "10+",
+                label: "Years in marine operations",
+              },
+              {
+                icon: <BarChart3 className="w-5 h-5" />,
+                value: "29K+",
+                label: "Marine parts indexed",
+              },
+              {
+                icon: <Zap className="w-5 h-5" />,
+                value: "12V/24V",
+                label: "Systems cross-checked",
+              },
+              {
+                icon: <CheckCircle className="w-5 h-5" />,
+                value: "ABYC",
+                label: "Standards aligned",
+              },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-5 rounded-2xl"
+                style={{
+                  background: "rgba(0, 18, 34, 0.4)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                }}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3"
+                  style={{
+                    background: "rgba(0, 240, 255, 0.08)",
+                    border: "1px solid rgba(0, 240, 255, 0.15)",
+                    color: "#00F0FF",
+                  }}
+                >
+                  {stat.icon}
+                </div>
+                <div
+                  className="text-2xl font-black mb-1"
+                  style={{ color: "#00F0FF", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* CONTACT */}
       {/* ================================================================ */}
       <ContactSection />
 

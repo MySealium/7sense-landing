@@ -16,9 +16,9 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "What We Build", href: "#capabilities" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "PicSea", href: "#picsea" },
+    { label: "What We Do", href: "#capabilities" },
+    { label: "Who We Serve", href: "#who-we-serve" },
+    { label: "Products", href: "#products" },
   ];
 
   return (
@@ -97,7 +97,7 @@ export function Navbar() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Get a Demo
+              Talk to Us
             </Link>
           </div>
 
@@ -147,7 +147,7 @@ export function Navbar() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Get a Demo
+              Talk to Us
             </Link>
           </div>
         </div>
