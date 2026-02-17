@@ -672,65 +672,70 @@ export default function Home() {
               className="text-3xl md:text-5xl font-black mb-4 text-white"
               style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
             >
-              We Know the{" "}
-              <span className="text-gradient">Industry</span>
+              Built by People Who{" "}
+              <span className="text-gradient">Work on Boats</span>
             </motion.h2>
+            <p className="max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
+              We didn&apos;t learn marine from a trade show. Our team brings over a decade
+              of hands-on field work — electrical, electronics, mechanical, and full
+              systems integration across sail, power, and commercial vessels.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               {
+                icon: <Wrench className="w-5 h-5" />,
+                title: "Field-Tested",
+                desc: "Over a decade of hands-on marine work. Every system on the boat — electrical, electronics, mechanical, hydraulic. Sail, power, and commercial. We build what we needed in the field and couldn\u0027t find anywhere else.",
+              },
+              {
+                icon: <Globe className="w-5 h-5" />,
+                title: "Industry Relationships",
+                desc: "Direct relationships with manufacturers, boat builders, distributors, and specialists across the East Coast and Caribbean. We know the supply chain because we\u0027ve used it — not because we read about it.",
+              },
+              {
+                icon: <Shield className="w-5 h-5" />,
+                title: "ABYC Certified",
+                desc: "Our work meets ABYC standards. Our data does too. Every part match, every compatibility check, every recommendation is held to the same standard you\u0027d expect from a certified marine technician.",
+              },
+              {
                 icon: <Anchor className="w-5 h-5" />,
-                value: "10+",
-                label: "Years in marine operations",
+                title: "Marine-Only Focus",
+                desc: "We don\u0027t build generic software and bolt on a marine label. Every product, every dataset, every decision is purpose-built for this industry. Marine is all we do.",
               },
-              {
-                icon: <BarChart3 className="w-5 h-5" />,
-                value: "29K+",
-                label: "Marine parts indexed",
-              },
-              {
-                icon: <Zap className="w-5 h-5" />,
-                value: "12V/24V",
-                label: "Systems cross-checked",
-              },
-              {
-                icon: <CheckCircle className="w-5 h-5" />,
-                value: "ABYC",
-                label: "Standards aligned",
-              },
-            ].map((stat, i) => (
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-5 rounded-2xl"
+                className="p-6 rounded-2xl group hover:border-[rgba(0,240,255,0.2)] transition-all duration-300"
                 style={{
                   background: "rgba(0, 18, 34, 0.4)",
                   border: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
                   style={{
                     background: "rgba(0, 240, 255, 0.08)",
                     border: "1px solid rgba(0, 240, 255, 0.15)",
                     color: "#00F0FF",
                   }}
                 >
-                  {stat.icon}
+                  {item.icon}
                 </div>
-                <div
-                  className="text-2xl font-black mb-1"
-                  style={{ color: "#00F0FF", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+                <h3
+                  className="text-lg font-bold text-white mb-2"
+                  style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
                 >
-                  {stat.value}
-                </div>
-                <div className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  {stat.label}
-                </div>
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
