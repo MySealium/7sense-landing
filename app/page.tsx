@@ -4,8 +4,9 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  Camera, Package, FileText, Anchor, Shield, Zap,
-  ArrowRight, Activity, Waves, Eye
+  Camera, Package, FileText, Anchor,
+  ArrowRight, CheckCircle, Zap, Search,
+  ClipboardCheck, Truck, ShieldCheck, Timer,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -57,7 +58,7 @@ export default function Home() {
         ))}
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          {/* Logo + Badge */}
+          {/* Logo + Sonar Animation */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,7 +105,7 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Marine Intelligence Systems
+              Your Shop&apos;s Operations Partner
             </span>
           </motion.div>
 
@@ -116,9 +117,9 @@ export default function Home() {
             className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight mb-6 leading-[1.05]"
             style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
           >
-            <span className="text-white">Sense. Navigate.</span>
+            <span className="text-white">We Handle the Parts.</span>
             <br />
-            <span className="text-gradient glow-text">Act.</span>
+            <span className="text-gradient glow-text">You Fix the Boats.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -129,9 +130,8 @@ export default function Home() {
             className="text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            We build intelligence systems for the marine industry. From photo-based
-            parts identification to predictive maintenance, our tools help shops and
-            fleet operators work smarter — not harder.
+            Field-tested tools for marine professionals. Snap a photo, identify the right parts,
+            build your order — backed by 29,000+ verified marine records.
           </motion.p>
 
           {/* CTAs */}
@@ -143,97 +143,53 @@ export default function Home() {
           >
             <a
               href="#contact"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-black flex items-center justify-center gap-2 transition-all duration-200 group"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-black flex items-center justify-center gap-2 transition-all duration-200 group hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]"
               style={{
                 background: "#00F0FF",
                 color: "#000C18",
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.boxShadow =
-                  "0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.boxShadow = "none")
-              }
             >
-              Start a Conversation
+              Get a Demo Account
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#capabilities"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 text-center"
+              href="#how-it-works"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 text-center hover:border-[rgba(0,240,255,0.25)] hover:text-[#00F0FF]"
               style={{
                 background: "rgba(255,255,255,0.04)",
                 color: "rgba(255,255,255,0.7)",
                 border: "1px solid rgba(255,255,255,0.08)",
               }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(0, 240, 255, 0.25)";
-                el.style.color = "#00F0FF";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(255,255,255,0.08)";
-                el.style.color = "rgba(255,255,255,0.7)";
-              }}
             >
-              See What We Build
+              See How It Works
             </a>
           </motion.div>
 
-          {/* Banner image */}
+          {/* Social proof metrics */}
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-16 max-w-4xl mx-auto relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
           >
-            <div
-              className="rounded-2xl overflow-hidden relative"
-              style={{
-                border: "1px solid rgba(0, 240, 255, 0.12)",
-                boxShadow:
-                  "0 0 60px rgba(0, 240, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.5)",
-              }}
-            >
-              <Image
-                src="/banner-wide.jpg"
-                alt="7-SENSE Marine — Ocean Intelligence"
-                width={1200}
-                height={400}
-                className="w-full h-auto object-cover"
-                style={{ maxHeight: "360px" }}
-                priority
-              />
-              {/* Gradient overlay */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(0deg, rgba(0, 12, 24, 0.8) 0%, rgba(0, 12, 24, 0.2) 40%, rgba(0, 12, 24, 0.1) 100%)",
-                }}
-              />
-              {/* Tagline overlay */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                <span
-                  className="text-[11px] font-bold tracking-[0.2em] uppercase glow-text-sm"
-                  style={{
-                    color: "rgba(0, 240, 255, 0.8)",
-                    fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
-                  }}
+            {[
+              { value: "29,000+", label: "Marine parts indexed" },
+              { value: "4 min", label: "Avg. search-to-order" },
+              { value: "12V/24V", label: "Cross-checked compatibility" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div
+                  className="text-xl md:text-2xl font-black"
+                  style={{ color: "#00F0FF", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
                 >
-                  Sense. Navigate. Act.
-                </span>
-                <span
-                  className="text-[10px] tracking-wider uppercase"
-                  style={{ color: "rgba(255,255,255,0.3)" }}
-                >
-                  7-SENSE Marine
-                </span>
+                  {stat.value}
+                </div>
+                <div className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>
+                  {stat.label}
+                </div>
               </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -265,12 +221,12 @@ export default function Home() {
               className="text-3xl md:text-5xl font-black mb-4 text-white"
               style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
             >
-              Marine Intelligence,{" "}
-              <span className="text-gradient">End to End</span>
+              Built for the Dock,{" "}
+              <span className="text-gradient">Not the Boardroom</span>
             </motion.h2>
             <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Purpose-built tools for marine professionals. Not generic SaaS
-              repackaged with a boat icon.
+              Purpose-built tools for marine professionals. Reliable data under pressure —
+              not generic software with a boat icon.
             </p>
           </div>
 
@@ -278,20 +234,20 @@ export default function Home() {
             {[
               {
                 icon: <Camera className="w-5 h-5" />,
-                title: "Visual Intelligence",
-                desc: "Photograph a part, get instant identification with manufacturer, part number, pricing, and stock — powered by our marine-specific AI.",
-                tag: "PicSea Engine",
+                title: "Fast Parts ID",
+                desc: "Snap a photo, get matched parts from 29,000+ marine records. Manufacturer, part number, pricing, and stock — in seconds, not hours.",
+                tag: "Live",
               },
               {
-                icon: <Activity className="w-5 h-5" />,
-                title: "Predictive Maintenance",
-                desc: "Track service intervals, detect patterns from job history, and prevent breakdowns before they happen. Your shop's institutional memory.",
-                tag: "Coming Soon",
+                icon: <ClipboardCheck className="w-5 h-5" />,
+                title: "Reliable Job Planning",
+                desc: "Auto-built bills of materials with cross-checked fits. Your BOM assembles itself as you photograph the job — you verify, not create.",
+                tag: "Live",
               },
               {
-                icon: <Shield className="w-5 h-5" />,
-                title: "Procurement Operations",
-                desc: "From photo to purchase order in minutes. Multi-vendor sourcing, compatibility validation, and export-ready BOMs for every job.",
+                icon: <Truck className="w-5 h-5" />,
+                title: "Trusted Ordering",
+                desc: "Pick vendors, compare pricing, generate purchase orders — backed by real boat data and verified compatibility. No guesswork.",
                 tag: "Live",
               },
             ].map((feature, i) => (
@@ -301,21 +257,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl transition-all duration-300 group cursor-default relative overflow-hidden"
+                className="p-6 rounded-2xl transition-all duration-300 group cursor-default relative overflow-hidden hover:border-[rgba(0,240,255,0.2)] hover:shadow-[0_0_30px_rgba(0,240,255,0.05)]"
                 style={{
                   background: "rgba(0, 26, 46, 0.4)",
                   border: "1px solid rgba(255,255,255,0.06)",
                   backdropFilter: "blur(12px)",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(0, 240, 255, 0.2)";
-                  el.style.boxShadow = "0 0 30px rgba(0, 240, 255, 0.05)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(255,255,255,0.06)";
-                  el.style.boxShadow = "none";
                 }}
               >
                 {/* Corner glow */}
@@ -340,12 +286,9 @@ export default function Home() {
                   <span
                     className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
                     style={{
-                      background:
-                        feature.tag === "Live"
-                          ? "rgba(52, 211, 153, 0.1)"
-                          : "rgba(0, 240, 255, 0.06)",
-                      color: feature.tag === "Live" ? "#34D399" : "rgba(0, 240, 255, 0.7)",
-                      border: `1px solid ${feature.tag === "Live" ? "rgba(52, 211, 153, 0.2)" : "rgba(0, 240, 255, 0.12)"}`,
+                      background: "rgba(52, 211, 153, 0.1)",
+                      color: "#34D399",
+                      border: "1px solid rgba(52, 211, 153, 0.2)",
                       fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                     }}
                   >
@@ -389,7 +332,7 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              The Process
+              How It Works
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -398,12 +341,12 @@ export default function Home() {
               className="text-3xl md:text-5xl font-black mb-4 text-white"
               style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
             >
-              Three Steps to{" "}
-              <span className="text-gradient">Smarter Operations</span>
+              Three Steps.{" "}
+              <span className="text-gradient">Zero Guesswork.</span>
             </motion.h2>
             <p className="max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Our tools follow a simple philosophy: sense the situation, navigate the
-              options, act with confidence.
+              Your photos are matched against 29,000+ verified marine parts.
+              Cross-checked for fit. Priced from multiple vendors.
             </p>
           </div>
 
@@ -411,23 +354,23 @@ export default function Home() {
             {[
               {
                 step: "01",
-                icon: <Eye className="w-6 h-6" />,
-                title: "Sense",
-                desc: "Capture photos, ingest data, monitor systems. Our AI processes the raw inputs and identifies what matters — parts, patterns, anomalies.",
+                icon: <Camera className="w-6 h-6" />,
+                title: "Snap",
+                desc: "Photograph the part, the panel, or the whole system. Your phone captures everything the system needs — no forms, no data entry.",
                 accent: "#00F0FF",
               },
               {
                 step: "02",
-                icon: <Waves className="w-6 h-6" />,
-                title: "Navigate",
-                desc: "Cross-reference manufacturers, check compatibility, source from multiple vendors. We handle the complexity so you can focus on the work.",
+                icon: <ClipboardCheck className="w-6 h-6" />,
+                title: "Verify",
+                desc: "Review the matched parts list with pricing and availability. Confirm what's right, tap to fix what isn't. Your BOM builds itself.",
                 accent: "#4DFAFF",
               },
               {
                 step: "03",
                 icon: <Zap className="w-6 h-6" />,
-                title: "Act",
-                desc: "Generate purchase orders, export BOMs, schedule maintenance. From data to completed task — measured, tracked, and verified.",
+                title: "Order",
+                desc: "Pick your vendors, generate the purchase order, and get back to work. Parts arrive, job gets done, records are kept.",
                 accent: "#34D399",
               },
             ].map((item, i) => (
@@ -449,7 +392,7 @@ export default function Home() {
                   className="text-[80px] font-black leading-none absolute top-2 right-4 pointer-events-none"
                   style={{
                     color: "transparent",
-                    WebkitTextStroke: `1px rgba(0, 240, 255, 0.06)`,
+                    WebkitTextStroke: "1px rgba(0, 240, 255, 0.06)",
                     fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                   }}
                 >
@@ -486,10 +429,10 @@ export default function Home() {
       </section>
 
       {/* ================================================================ */}
-      {/* PLATFORM SECTION — PicSea Spotlight */}
+      {/* PICSEA SECTION */}
       {/* ================================================================ */}
       <section
-        id="platform"
+        id="picsea"
         className="py-20 md:py-28 px-4 relative"
         style={{ background: "rgba(0, 26, 46, 0.2)" }}
       >
@@ -510,30 +453,36 @@ export default function Home() {
                   fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                 }}
               >
-                Flagship Product
+                Now Available
               </span>
               <h2
-                className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white"
+                className="text-3xl md:text-5xl font-black mb-2 leading-tight text-white"
                 style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
               >
                 PicSea
-                <br />
-                <span className="text-gradient">Procurement Intelligence</span>
               </h2>
+              <p
+                className="text-xl md:text-2xl font-bold mb-6"
+                style={{ color: "rgba(0, 240, 255, 0.7)", fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
+              >
+                Your Dockside Parts Partner
+              </p>
               <p
                 className="text-base mb-8 leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.5)" }}
               >
-                Photograph a marine part. Get instant identification, dealer pricing,
-                stock levels, and compatibility checks. Build a complete BOM and export a
-                purchase order — all from your phone or tablet on the dock.
+                Snap a photo of any marine part or system. Get instant identification,
+                dealer pricing, stock levels, and compatibility checks. Build a complete
+                bill of materials and generate a purchase order — all from your phone,
+                right there on the dock. Cuts ordering time with accurate data from real
+                marine jobs.
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
                   { icon: <Camera className="w-4 h-4" />, label: "Photo → Part ID" },
-                  { icon: <Package className="w-4 h-4" />, label: "Multi-vendor sourcing" },
-                  { icon: <FileText className="w-4 h-4" />, label: "PDF/CSV export" },
+                  { icon: <Package className="w-4 h-4" />, label: "Multi-vendor pricing" },
+                  { icon: <FileText className="w-4 h-4" />, label: "Auto-built BOMs" },
                   { icon: <Anchor className="w-4 h-4" />, label: "Vessel-aware matching" },
                 ].map((feat, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -553,6 +502,19 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:shadow-[0_0_24px_rgba(0,240,255,0.4)]"
+                style={{
+                  background: "#00F0FF",
+                  color: "#000C18",
+                  fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
+                }}
+              >
+                Get a Demo Account
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </motion.div>
 
             {/* Right: visual */}
@@ -608,7 +570,7 @@ export default function Home() {
                       fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                     }}
                   >
-                    Photo → BOM → PO
+                    Snap → Verify → Order
                   </span>
                 </div>
               </div>

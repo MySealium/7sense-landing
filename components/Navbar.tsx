@@ -16,9 +16,9 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Capabilities", href: "#capabilities" },
+    { label: "What We Build", href: "#capabilities" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Platform", href: "#platform" },
+    { label: "PicSea", href: "#picsea" },
   ];
 
   return (
@@ -69,7 +69,7 @@ export function Navbar() {
               />
             </div>
             <span
-              className="text-base font-black tracking-[0.15em] uppercase text-white group-hover:text-brand-cyan transition-colors duration-200"
+              className="text-base font-black tracking-[0.15em] uppercase text-white"
               style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
             >
               7-SENSE
@@ -82,31 +82,22 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium transition-colors duration-200"
+                className="text-sm font-medium transition-colors duration-200 hover:text-[#00F0FF]"
                 style={{ color: "rgba(255,255,255,0.55)" }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#00F0FF")}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.55)")}
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="#contact"
-              className="px-5 py-2 rounded-lg text-sm font-bold transition-all duration-200 flex items-center gap-2"
+              className="px-5 py-2 rounded-lg text-sm font-bold transition-all duration-200 flex items-center gap-2 hover:shadow-[0_0_24px_rgba(0,240,255,0.4)]"
               style={{
                 background: "#00F0FF",
                 color: "#000C18",
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.boxShadow =
-                  "0 0 24px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.boxShadow = "none")
-              }
             >
-              Get In Touch
+              Get a Demo
             </Link>
           </div>
 
@@ -156,7 +147,7 @@ export function Navbar() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Get In Touch
+              Get a Demo
             </Link>
           </div>
         </div>

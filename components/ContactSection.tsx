@@ -40,19 +40,6 @@ export function ContactSection() {
     }
   };
 
-  const inputStyle: React.CSSProperties = {
-    background: "rgba(0, 26, 46, 0.5)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "12px",
-    padding: "12px 16px",
-    color: "#FFFFFF",
-    fontSize: "14px",
-    fontFamily: "'Inter', sans-serif",
-    outline: "none",
-    width: "100%",
-    transition: "border-color 0.2s, box-shadow 0.2s",
-  };
-
   return (
     <section id="contact" className="py-20 md:py-28 px-4 relative">
       {/* Ambient glow */}
@@ -77,7 +64,7 @@ export function ContactSection() {
               fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
             }}
           >
-            Get In Touch
+            Talk to Us
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -86,11 +73,11 @@ export function ContactSection() {
             className="text-3xl md:text-5xl font-black mb-4 text-white"
             style={{ fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif" }}
           >
-            Let&apos;s Talk <span className="text-gradient">Marine</span>
+            Ready to <span className="text-gradient">Streamline Your Shop?</span>
           </motion.h2>
           <p style={{ color: "rgba(255,255,255,0.45)" }}>
-            Tell us about your operation. Whether you run a shop, manage a fleet, or
-            need a custom solution — we&apos;re here to help.
+            Tell us about your operation. Whether you&apos;re a one-person shop or managing a fleet — we&apos;re
+            built for the people who actually fix the boats.
           </p>
         </div>
 
@@ -107,7 +94,7 @@ export function ContactSection() {
               "0 0 40px rgba(0, 240, 255, 0.04), 0 20px 60px rgba(0, 0, 0, 0.4)",
           }}
         >
-          {/* Viewport corners */}
+          {/* Corner brackets */}
           {["top-4 left-4 border-t border-l", "top-4 right-4 border-t border-r", "bottom-4 left-4 border-b border-l", "bottom-4 right-4 border-b border-r"].map(
             (classes, i) => (
               <div
@@ -144,8 +131,7 @@ export function ContactSection() {
                   Message Received
                 </h3>
                 <p className="mb-8" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  We&apos;ll get back to you within 24 hours. In the meantime, feel free
-                  to reach out directly at{" "}
+                  We&apos;ll get back to you within 24 hours. You can also reach out at{" "}
                   <a
                     href="mailto:jannas@7sense.net"
                     style={{ color: "#00F0FF" }}
@@ -197,20 +183,12 @@ export function ContactSection() {
                   <input
                     required
                     type="text"
-                    placeholder="James Mariner"
+                    placeholder="Your name"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    style={inputStyle}
-                    onFocus={(e) => {
-                      (e.target as HTMLInputElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
-                      (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
-                    }}
-                    onBlur={(e) => {
-                      (e.target as HTMLInputElement).style.borderColor = "rgba(255,255,255,0.08)";
-                      (e.target as HTMLInputElement).style.boxShadow = "none";
-                    }}
+                    className="form-input"
                   />
                 </div>
 
@@ -228,20 +206,12 @@ export function ContactSection() {
                   <input
                     required
                     type="email"
-                    placeholder="james@fleet.com"
+                    placeholder="you@yourshop.com"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    style={inputStyle}
-                    onFocus={(e) => {
-                      (e.target as HTMLInputElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
-                      (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
-                    }}
-                    onBlur={(e) => {
-                      (e.target as HTMLInputElement).style.borderColor = "rgba(255,255,255,0.08)";
-                      (e.target as HTMLInputElement).style.boxShadow = "none";
-                    }}
+                    className="form-input"
                   />
                 </div>
 
@@ -264,15 +234,7 @@ export function ContactSection() {
                     onChange={(e) =>
                       setFormData({ ...formData, organization: e.target.value })
                     }
-                    style={inputStyle}
-                    onFocus={(e) => {
-                      (e.target as HTMLInputElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
-                      (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
-                    }}
-                    onBlur={(e) => {
-                      (e.target as HTMLInputElement).style.borderColor = "rgba(255,255,255,0.08)";
-                      (e.target as HTMLInputElement).style.boxShadow = "none";
-                    }}
+                    className="form-input"
                   />
                 </div>
 
@@ -293,19 +255,7 @@ export function ContactSection() {
                       onChange={(e) =>
                         setFormData({ ...formData, project: e.target.value })
                       }
-                      style={{
-                        ...inputStyle,
-                        appearance: "none" as const,
-                        paddingRight: "40px",
-                      }}
-                      onFocus={(e) => {
-                        (e.target as HTMLSelectElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
-                        (e.target as HTMLSelectElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
-                      }}
-                      onBlur={(e) => {
-                        (e.target as HTMLSelectElement).style.borderColor = "rgba(255,255,255,0.08)";
-                        (e.target as HTMLSelectElement).style.boxShadow = "none";
-                      }}
+                      className="form-input appearance-none pr-10"
                     >
                       <option value="Consulting" style={{ background: "#001A2E" }}>
                         Consulting
@@ -344,23 +294,12 @@ export function ContactSection() {
                   <textarea
                     required
                     rows={4}
-                    placeholder="Tell us about your operation, the challenges you face, and what you're looking for..."
+                    placeholder="Tell us about your operation and what you're looking for..."
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    style={{
-                      ...inputStyle,
-                      resize: "none" as const,
-                    }}
-                    onFocus={(e) => {
-                      (e.target as HTMLTextAreaElement).style.borderColor = "rgba(0, 240, 255, 0.3)";
-                      (e.target as HTMLTextAreaElement).style.boxShadow = "0 0 0 3px rgba(0, 240, 255, 0.05)";
-                    }}
-                    onBlur={(e) => {
-                      (e.target as HTMLTextAreaElement).style.borderColor = "rgba(255,255,255,0.08)";
-                      (e.target as HTMLTextAreaElement).style.boxShadow = "none";
-                    }}
+                    className="form-input resize-none"
                   />
                 </div>
 
@@ -369,19 +308,12 @@ export function ContactSection() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full py-4 rounded-xl font-black text-sm transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full py-4 rounded-xl font-black text-sm transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]"
                     style={{
                       background: "#00F0FF",
                       color: "#000C18",
                       fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
                     }}
-                    onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLElement).style.boxShadow =
-                        "0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.1)")
-                    }
-                    onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLElement).style.boxShadow = "none")
-                    }
                   >
                     {status === "submitting" ? (
                       <span

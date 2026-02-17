@@ -16,24 +16,24 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "7-SENSE Marine | Sense. Navigate. Act.",
+  title: "7-SENSE Marine — Field-Tested Tools for Marine Pros",
   description:
-    "Marine intelligence systems that transform how vessels are maintained, operated, and provisioned. AI-powered procurement, predictive maintenance, and operational intelligence for marine professionals.",
+    "Your shop's operations partner. Fast parts identification, reliable job planning, and trusted ordering — built for marine professionals who fix boats for a living.",
   keywords: [
-    "marine intelligence",
-    "vessel management",
+    "marine parts",
     "marine procurement",
+    "parts identification",
     "PicSea",
     "7-SENSE",
-    "marine AI",
-    "boat maintenance",
+    "boat parts ordering",
+    "marine technician tools",
     "marine electronics",
   ],
   authors: [{ name: "7-SENSE Marine" }],
   openGraph: {
-    title: "7-SENSE Marine | Sense. Navigate. Act.",
+    title: "7-SENSE Marine — We Handle the Parts. You Fix the Boats.",
     description:
-      "Marine intelligence systems for professionals. AI-powered procurement, predictive maintenance, and operational intelligence.",
+      "Field-tested tools for marine professionals. Snap a photo, identify parts, build your order. Backed by 29,000+ verified marine records.",
     type: "website",
   },
 };
