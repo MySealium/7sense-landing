@@ -22,12 +22,16 @@ export function ContactSection() {
     setStatus("submitting");
 
     try {
+      // Capture UTM source for lead attribution
+      const params = new URLSearchParams(window.location.search);
+      const source = params.get("utm_source") || params.get("ref") || "Website";
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source }),
       });
 
       if (!response.ok) throw new Error("Submission failed");

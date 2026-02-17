@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     try {
         const body = await request.json();
-        const { name, email, organization, project, message } = body;
+        const { name, email, organization, project, message, source } = body;
 
         if (!process.env.NOTION_API_KEY) {
             console.error("CRITICAL: NOTION_API_KEY is missing from environment.");
@@ -54,7 +54,17 @@ export async function POST(request: Request) {
                 },
                 Priority: {
                     select: {
-                        name: "P2 - Medium", // Default priority for triage
+                        name: "P2 - Medium",
+                    },
+                },
+                Source: {
+                    select: {
+                        name: source || "Website",
+                    },
+                },
+                Tier: {
+                    select: {
+                        name: "PicSea Free",
                     },
                 },
             },
