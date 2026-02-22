@@ -127,8 +127,9 @@ export default function Home() {
             className="text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
             style={{ color: "rgba(255,255,255,0.55)" }}
           >
-            We build technology for the marine industry. Data systems, field tools, and
-            operational intelligence — designed for people who work on the water.
+            Marine technicians lose 4–8 hours per job hunting parts, chasing fits, and
+            calling suppliers. We built the tools that end that — and put the time back
+            in your hands.
           </motion.p>
 
           {/* CTAs */}
@@ -147,7 +148,7 @@ export default function Home() {
                 fontFamily: "var(--font-montserrat), 'Montserrat', sans-serif",
               }}
             >
-              Talk to Us
+              Get Early Access
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
@@ -212,7 +213,7 @@ export default function Home() {
               {
                 icon: <Wrench className="w-5 h-5" />,
                 title: "Field Operations Tools",
-                desc: "Purpose-built software for technicians and shops. Parts identification, job planning, bill of materials, purchase orders — from your phone, on the dock.",
+                desc: "The average marine tech spends 4–8 hours per job on parts research alone. PicSea cuts that to under 10 minutes — photo to part ID to purchase order, on the dock.",
                 tag: "Live",
               },
               {
