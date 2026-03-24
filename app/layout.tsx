@@ -17,6 +17,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "7-SENSE Marine — Field-Tested Tools for Marine Pros",
+  other: {
+    "impact-site-verification": "34ec4525-c5e0-4a5a-983d-af4d499a5945",
+  },
   description:
     "Your shop's operations partner. Fast parts identification, reliable job planning, and trusted ordering — built for marine professionals who fix boats for a living.",
   keywords: [
