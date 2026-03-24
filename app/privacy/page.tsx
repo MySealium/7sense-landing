@@ -113,9 +113,9 @@ export default function PrivacyPage() {
           </p>
         </div>
 
-        <div>
+        <div id="data-deletion">
           <h2 className="text-white font-semibold text-lg mb-2">
-            6. Your rights
+            6. Your rights &amp; data deletion
           </h2>
           <p>
             You may request access to, correction of, or deletion of any personal
@@ -127,6 +127,21 @@ export default function PrivacyPage() {
               hello@7sense.net
             </a>
             . We will respond within 30 days.
+          </p>
+          <p className="mt-2">
+            To request deletion of any data associated with your Facebook account
+            or pages, email{" "}
+            <a
+              href="mailto:hello@7sense.net"
+              className="text-[#00F0FF] hover:underline"
+            >
+              hello@7sense.net
+            </a>{" "}
+            with the subject line <strong>"Data Deletion Request"</strong>. We
+            will confirm deletion within 30 days. Because our integration uses
+            only public page data via an app access token — not user OAuth — we
+            do not store personal Facebook user data, friend lists, or private
+            content.
           </p>
         </div>
 
